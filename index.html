@@ -1,27 +1,29 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>263 hit Radio - Mobile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>263 Hit Radio </title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+  <style>
         :root {
-            --primary: #ff0026;
-            --secondary: #ffffff;
-            --background: #000000;
-            --card-bg: rgba(15, 15, 15, 0.9);
-            --accent-light: #ff4d5e;
-            --accent-dark: #c2001a;
-            --glass: rgba(255, 0, 38, 0.15);
+            --primary: #ff0026;        /* Vibrant red for accents */
+            --secondary: #ffffff;       /* Pure white for text */
+            --background: #000000;      /* Deep black for backgrounds */
+            --card-bg: rgba(15, 15, 15, 0.9); /* Slightly lighter black for cards */
+            --accent-light: #ff4d5e;    /* Lighter red for highlights */
+            --accent-dark: #c2001a;     /* Darker red for depth */
+            --glass: rgba(255, 0, 38, 0.15); /* Red glass effect */
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -31,9 +33,7 @@
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
-            padding-bottom: 80px;
-            font-size: 14px;
-            line-height: 1.4;
+            padding-bottom: 100px;
         }
 
         body::before {
@@ -51,1372 +51,3888 @@
             z-index: -1;
         }
 
-        /* Mobile Header */
-        .mobile-header {
-            position: sticky;
+        /* Combined Header with Navigation */
+        .sticky-header {
+            position: relative;
             top: 0;
             z-index: 1000;
-            background: rgba(0, 0, 0, 0.95);
+            background: linear-gradient(
+                rgba(0, 0, 0, 0.95), 
+                rgba(0, 0, 0, 0.8)
+            ), url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
             backdrop-filter: blur(10px);
-            padding: 12px 15px;
+            box-shadow: 0 10px 30px rgba(255, 0, 38, 0.3);
+            border-bottom: 4px solid var(--primary);
+            min-height: 300px;
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid var(--primary);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
 
-        .logo-small {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            background: linear-gradient(145deg, var(--accent-dark), var(--primary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 12px;
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .hide-header {
+            transform: none;
+        }
+
+        #live-header {
+            padding: 20px 0;
+        }
+
+.header-container {
+    display: flex;
+    align-items: flex-start; /* Changed from center to flex-start */
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Logo Container */
+.logo-container {
+    flex: 0 0 auto;
+    width: 140px;
+    height: 175px;
+    background: linear-gradient(145deg, var(--accent-dark), var(--primary));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 25px rgba(255, 0, 38, 0.8);
+    border: 3px solid var(--secondary);
+    overflow: hidden;
+    animation: float 6s ease-in-out infinite;
+    margin-top: -15px; /* Pulls logo up higher */
+}
+
+/* DJ Image Container */
+.dj-image {
+    width: 140px;
+    height: 175px;
+    background: linear-gradient(145deg, var(--accent-dark), var(--primary));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 25px rgba(255, 0, 38, 0.8);
+    border: 3px solid var(--secondary);
+    overflow: hidden;
+    animation: float 6s ease-in-out infinite;
+    margin-top: -15px; /* Pulls DJ image up equally */
+}
+
+/* Images inside containers */
+.logo-container img, 
+.dj-image img {
+    width: 134px;
+    height: 169px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid var(--primary);
+}
+
+/* Adjust DJ info section below image */
+.dj-player-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px; /* Tightened spacing */
+    margin-top: -10px; /* Pulls controls up closer */
+}
+
+.dj-name {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-top: -8px; /* Pulls name up */
+    margin-bottom: 3px;
+}
+
+        .radio-info {
             text-align: center;
-            border: 2px solid var(--secondary);
         }
 
-        .station-name-mobile {
-            font-size: 16px;
-            font-weight: 700;
+        .station-name {
+            font-size: 28px;
+            font-weight: 800;
             color: var(--primary);
-            text-shadow: 0 0 5px rgba(255, 0, 38, 0.7);
+            text-shadow: 0 0 10px rgba(255, 0, 38, 0.7);
+            margin-bottom: 8px;
+            letter-spacing: 1px;
             font-family: 'Orbitron', sans-serif;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            flex-grow: 1;
-            text-align: center;
-            margin: 0 10px;
         }
 
-        .menu-toggle {
-            width: 40px;
-            height: 40px;
+   .now-playing {
+    font-size: 16px;
+    margin-bottom: 15px;
+    background: red; /* Solid red background */
+    color: white; /* White text */
+    padding: 8px 20px;
+    border-radius: 20px;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Optional: Add hover effect similar to your button */
+    transition: all 0.3s ease;
+}
+
+/* Optional: Add hover effect if you want it */
+.now-playing:hover {
+    background: white;
+    color: red;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px red;
+}
+
+   #track-title {
+    color: white;  /* Changed to white text */
+    font-weight: bold;
+    font-style: italic;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.7); /* Optional red glow effect */
+}
+    #listenBtn {
+    background: red; /* Changed to solid red background */
+    color: white; /* Changed to white text */
+    padding: 12px 35px;
+    font-weight: bold;
+    border-radius: 30px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+}
+
+#listenBtn:hover {
+    background: white; /* Changed to white background on hover */
+    color: red; /* Changed to red text on hover */
+    transform: scale(1.05);
+    box-shadow: 0 0 20px red; /* Changed shadow to red */
+}
+
+#listenBtn::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(30deg);
+    transition: all 0.6s;
+}
+
+#listenBtn:hover::before {
+    transform: rotate(30deg) translate(20%, 20%);
+}
+        .player-controls {
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            align-items: center;
-            background: rgba(255, 0, 38, 0.2);
-            border-radius: 8px;
-            border: 1px solid var(--primary);
+            gap: 15px;
+            margin-top: 15px;
+            width: 100%;
         }
 
-        .menu-toggle span {
-            display: block;
-            width: 22px;
-            height: 2px;
-            background: var(--secondary);
-            margin: 2px 0;
-            transition: all 0.3s;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            left: -100%;
-            width: 80%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 1001;
-            padding: 70px 20px 20px;
-            transition: left 0.3s ease;
-            overflow-y: auto;
-            border-right: 2px solid var(--primary);
-        }
-
-        .mobile-menu.active {
-            left: 0;
-        }
-
-        .menu-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--secondary);
-            font-size: 24px;
-            background: rgba(255, 0, 38, 0.2);
-            border-radius: 50%;
-            border: 1px solid var(--primary);
-        }
-
-        .mobile-nav {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .mobile-nav a {
+        .volume-control {
             display: flex;
             align-items: center;
-            padding: 15px;
-            background: rgba(255, 0, 38, 0.1);
-            border-radius: 8px;
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: 500;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s;
+            gap: 8px;
+            width: 200px;
         }
 
-        .mobile-nav a i {
-            margin-right: 12px;
-            width: 20px;
-            text-align: center;
+        .volume-control i {
             color: var(--primary);
+            font-size: 20px;
         }
 
-        .mobile-nav a.active, .mobile-nav a:hover {
-            background: rgba(255, 0, 38, 0.3);
-            border-color: var(--primary);
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
+        .volume-control input {
             width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-        }
-
-        .overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Player Controls */
-        .mobile-player {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            border-top: 2px solid var(--primary);
-            padding: 12px 15px;
-            display: flex;
-            align-items: center;
-            z-index: 999;
-            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        .now-playing-mobile {
-            flex: 1;
-            margin: 0 12px;
-            overflow: hidden;
-        }
-
-        #track-title-mobile {
-            font-size: 13px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            color: white;
-            font-weight: bold;
-            font-style: italic;
-        }
-
-        .play-btn {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            border: none;
-            box-shadow: 0 0 10px rgba(255, 0, 38, 0.7);
-        }
-
-        .play-btn:active {
-            transform: scale(0.95);
-        }
-
-        .volume-btn {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--secondary);
-            font-size: 18px;
-        }
-
-        .volume-slider-container {
-            position: absolute;
-            bottom: 70px;
-            right: 15px;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid var(--primary);
-            transform: translateY(10px);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-        }
-
-        .volume-slider-container.active {
-            transform: translateY(0);
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .volume-slider-container input {
-            width: 120px;
-            height: 5px;
             accent-color: var(--primary);
         }
+        
+        /* Share button styles */
+        .share-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: center;
+        }
+        
+        .share-btn {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 8px 15px;
+            border-radius: 30px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+        }
+        
+        .share-btn:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px var(--primary);
+        }
+        
+        .share-options {
+            display: none;
+            position: absolute;
+            background: rgba(30, 30, 30, 0.95);
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            z-index: 100;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            border: 1px solid var(--primary);
+        }
+        
+        .share-options.show {
+            display: block;
+        }
+        
+        .share-option {
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            color: var(--secondary);
+        }
+        
+        .share-option:hover {
+            background: rgba(255, 0, 38, 0.3);
+        }
+        
+        /* Player options dropdown */
+        .listen-options {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .options-dropdown {
+            display: none;
+            position: absolute;
+            background: rgba(30, 30, 30, 0.95);
+            min-width: 250px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            z-index: 100;
+            border-radius: 10px;
+            overflow: hidden;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: 10px;
+        }
+        
+        .options-dropdown a {
+            color: var(--secondary);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background 0.3s;
+        }
+        
+        .options-dropdown a:hover {
+            background-color: rgba(255, 0, 38, 0.3);
+        }
+        
+        .listen-options:hover .options-dropdown {
+            display: block;
+        }
+        
+        /* Navigation Styles */
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            background: rgba(0, 0, 0, 0.7);
+            border-top: 1px solid var(--primary);
+            flex-wrap: wrap; /* Added for mobile responsiveness */
+        }
 
+        .nav-link {
+            color: var(--secondary);
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background: var(--primary);
+            color: var(--secondary);
+            box-shadow: 0 0 10px rgba(255, 0, 38, 0.5);
+        }
+        
         /* Main Content */
-        .content {
-            padding: 15px;
-            max-width: 100%;
-            margin: 0 auto;
+        main {
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 0 20px;
         }
 
         .page-section {
             display: none;
-            animation: fadeIn 0.4s ease;
+            padding: 40px 0;
         }
 
         .page-section.active {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--glass);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
         .section-title {
             color: var(--primary);
-            font-size: 1.5rem;
-            margin: 20px 0 15px;
-            text-align: center;
-            position: relative;
             font-family: 'Orbitron', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-
-        .glass-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 1px solid var(--primary);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Home Page */
-        .hero-mobile {
+            font-size: 2.2rem;
             text-align: center;
-            padding: 20px 0;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 8px rgba(255, 0, 38, 0.5);
         }
 
-        .hero-mobile h1 {
-            font-size: 1.8rem;
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
             color: var(--primary);
-            margin-bottom: 15px;
-            text-shadow: 0 0 8px rgba(255, 0, 38, 0.7);
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 0, 38, 0.7);
             font-family: 'Orbitron', sans-serif;
-            letter-spacing: 1px;
+            letter-spacing: 3px;
         }
 
-        .hero-mobile p {
-            font-size: 1rem;
-            line-height: 1.5;
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
             background: rgba(0, 0, 0, 0.5);
-            padding: 15px;
-            border-radius: 12px;
+            padding: 20px;
+            border-radius: 20px;
             border: 1px solid var(--primary);
         }
 
-        .grid-mobile {
+        .grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-            margin: 20px 0;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
         }
 
-        .block-mobile {
+        .block {
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 15px;
             overflow: hidden;
             border: 1px solid var(--primary);
             transition: all 0.3s;
-        }
-
-        .block-mobile:active {
-            transform: scale(0.98);
-        }
-
-        .block-mobile img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-bottom: 2px solid var(--primary);
-        }
-
-        .block-content {
-            padding: 15px;
-        }
-
-        .block-content h3 {
-            margin: 0 0 10px;
-            color: var(--primary);
-            font-size: 1.2rem;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        .block-content p {
-            margin-bottom: 15px;
-            color: #e0e0e0;
-            font-size: 0.9rem;
-        }
-
-        .cta-mobile {
-            display: inline-block;
-            background: var(--primary);
-            color: var(--secondary);
-            padding: 10px 20px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-
-        .cta-mobile:active {
-            transform: scale(0.95);
-        }
-
-        /* Countdown */
-        .countdown-container-mobile {
-            background: #000;
-            border: 2px solid var(--primary);
-            border-radius: 12px;
-            padding: 20px 15px;
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        .countdown-title-mobile {
-            color: var(--primary);
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
-        .countdown-timer-mobile {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .countdown-item-mobile {
-            background: rgba(255,0,38,0.12);
-            border-radius: 8px;
-            padding: 12px 8px;
-            min-width: 50px;
+            position: relative;
+            min-height: 400px;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            border: 2px solid var(--primary);
         }
 
-        .countdown-number-mobile {
-            color: #fff;
-            font-size: 1.5rem;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: bold;
-            margin-bottom: 4px;
-            text-shadow: 0 0 5px var(--primary);
+        .block:hover {
+            border-color: var(--accent-light);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 0, 38, 0.4);
         }
 
-        .countdown-label-mobile {
-            color: #fff;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            opacity: 0.85;
-        }
-
-        .countdown-separator-mobile {
-            color: var(--primary);
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 0 4px;
-            font-family: 'Orbitron', sans-serif;
-            text-shadow: 0 0 5px var(--primary);
-        }
-
-        /* Fans Section */
-        .fans-grid-mobile {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .fan-card-mobile {
-            background: rgba(227, 25, 55, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid rgba(227, 25, 55, 0.2);
-        }
-
-        .fan-card-mobile img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-bottom: 2px solid var(--primary);
-        }
-
-        .fan-info-mobile {
-            padding: 12px;
-        }
-
-        .fan-info-mobile h3 {
-            color: var(--primary);
-            margin-bottom: 8px;
-            font-size: 1.1rem;
-        }
-
-        .fan-info-mobile p {
-            color: #ddd;
-            font-style: italic;
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        /* Schedule Table */
-        .schedule-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-            font-size: 0.85rem;
-        }
-
-        .schedule-table th, .schedule-table td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .schedule-table th {
-            background: rgba(227, 25, 55, 0.2);
-            color: var(--primary);
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        .schedule-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        /* Forms */
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--secondary);
-            font-weight: 500;
-        }
-
-        .form-group input, .form-group textarea, .form-group select {
-            width: 100%;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid var(--primary);
-            background: rgba(0, 0, 0, 0.5);
-            color: var(--secondary);
-            font-size: 1rem;
-        }
-
-        .form-group textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            background: var(--primary);
-            color: var(--secondary);
-            border: none;
-            padding: 12px 25px;
-            border-radius: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            display: block;
-            margin: 20px auto 0;
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 1px;
-        }
-
-        .submit-btn:active {
-            transform: scale(0.95);
-        }
-
-        /* DJ Cards */
-        .dj-grid-mobile {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .dj-card-mobile {
-            background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            text-align: center;
-            border: 2px solid var(--primary);
-        }
-
-        .dj-card-mobile img {
+        .block img {
             width: 100%;
             height: 200px;
             object-fit: cover;
-            border-bottom: 2px solid var(--primary);
+            border-bottom: 3px solid var(--primary);
         }
 
-        .dj-info-mobile {
-            padding: 15px;
-        }
-
-        .dj-info-mobile h3 {
-            margin: 0 0 8px;
-            color: var(--primary);
-            font-size: 1.2rem;
-            font-family: 'Orbitron', sans-serif;
-        }
-
-        .dj-schedule-mobile {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            color: #bbb;
-            font-size: 0.8rem;
-            margin-bottom: 10px;
-        }
-
-        .dj-bio {
-            color: #aaa;
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-        }
-
-        .show-name {
-            display: block;
-            color: var(--accent-light);
-            font-style: italic;
-            margin-top: 10px;
-            padding: 8px 0;
-            border-top: 1px dashed rgba(255,255,255,0.1);
-            font-size: 0.85rem;
-        }
-
-        /* Contact Cards */
-        .contact-cards-mobile {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .contact-card-mobile {
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 12px;
+        .block-content {
             padding: 20px;
-            text-align: center;
-            border: 1px solid rgba(227, 25, 55, 0.3);
-        }
-
-        .contact-icon-mobile {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+            flex: 1;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            font-size: 1.5rem;
+            flex-direction: column;
         }
 
-        .contact-icon-mobile.whatsapp {
-            background: rgba(37, 211, 102, 0.1);
-            color: #25D366;
-            border: 2px solid #25D366;
-        }
-
-        .contact-icon-mobile.chat {
-            background: rgba(227, 25, 55, 0.1);
+        .block h3 {
+            margin-top: 0;
             color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .contact-icon-mobile.email {
-            background: rgba(255, 193, 7, 0.1);
-            color: #FFC107;
-            border: 2px solid #FFC107;
-        }
-
-        .contact-card-mobile h3 {
-            color: white;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
+            font-size: 1.5rem;
             font-family: 'Orbitron', sans-serif;
-        }
-
-        .contact-card-mobile p {
-            color: #ddd;
-            line-height: 1.5;
             margin-bottom: 15px;
-            font-size: 0.9rem;
         }
 
-        .contact-btn-mobile {
+        .block p {
+            flex: 1;
+            margin-bottom: 20px;
+            color: #e0e0e0;
+        }
+
+        .cta {
             display: inline-block;
-            padding: 10px 20px;
-            border-radius: 20px;
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
             font-weight: bold;
-            text-decoration: none;
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 0.5px;
-            font-size: 0.9rem;
-        }
-
-        .whatsapp-btn {
-            background: #25D366;
-            color: white;
-            border: 2px solid #25D366;
-        }
-
-        .chat-btn {
-            background: var(--primary);
-            color: white;
-            border: 2px solid var(--primary);
-        }
-
-        .email-btn {
-            background: #FFC107;
-            color: #222;
-            border: 2px solid #FFC107;
-        }
-
-        /* Footer */
-        .mobile-footer {
-            background: rgba(0, 0, 0, 0.9);
-            color: white;
-            padding: 20px 15px;
-            text-align: center;
-            border-top: 2px solid var(--primary);
-            margin-top: 30px;
-        }
-
-        .copyright {
-            margin-bottom: 15px;
-            color: #ddd;
-            font-size: 0.9rem;
-        }
-
-        .socials-mobile {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .socials-mobile a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(227, 25, 55, 0.2);
-            color: white;
-            font-size: 1rem;
             transition: all 0.3s;
-            border: 1px solid var(--primary);
-            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            border: 2px solid transparent;
         }
 
-        .socials-mobile a:active {
-            transform: scale(0.95);
-            background: var(--primary);
+        .cta:hover {
+            background: var(--accent-light);
+            color: var(--secondary);
+            border-color: var(--accent-light);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--primary);
         }
 
-        /* Utility Classes */
-        .text-center {
-            text-align: center;
+        .event-promo {
+            margin-bottom: 40px;
         }
 
-        .mt-10 {
-            margin-top: 10px;
-        }
-
-        .mt-20 {
-            margin-top: 20px;
-        }
-
-        .mb-10 {
-            margin-bottom: 10px;
-        }
-
-        .mb-20 {
+        .event-banner img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 3px solid var(--primary);
             margin-bottom: 20px;
         }
 
-        .hidden {
-            display: none;
+        .event-details h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
         }
 
-        /* Swipe navigation */
-        .content {
-            touch-action: pan-y;
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+
+        .month-nav button {
+            background: var(--primary);
+            color: var(--secondary);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .month-nav button:hover {
+            background: var(--accent-light);
+            color: var(--secondary);
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .calendar-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow-x: auto;
+            border: 1px solid var(--primary);
+            display: block;
+            max-width: 100%;
+        }
+
+        .calendar-table th {
+            background: var(--primary);
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            min-width: 120px;
+            color: var(--secondary);
+        }
+
+        .calendar-table td {
+            padding: 15px;
+            border: 1px solid rgba(255, 0, 38, 0.3);
+            text-align: center;
+            vertical-align: top;
+            height: 120px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 120px;
+            color: #e0e0e0;
+        }
+
+        .calendar-table td:hover {
+            background: rgba(255, 0, 38, 0.1);
+        }
+
+        .day-number {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .event-count {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .event-form {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+
+        .event-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .event-form input[type="text"],
+        .event-form input[type="date"],
+        .event-form input[type="time"],
+        .event-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid var(--primary);
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--secondary);
+        }
+
+        .event-form button {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .event-form button:hover {
+            background: var(--accent-light);
+        }
+
+        .dj-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--primary);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .dj-card:hover {
+            box-shadow: 0 10px 20px rgba(255, 0, 38, 0.4);
+            transform: translateY(-5px);
+        }
+
+        .dj-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .dj-card-content {
+            padding: 20px;
+        }
+
+        .dj-card-content h3 {
+            color: var(--primary);
+            font-family: 'Orbitron', sans-serif;
+            margin-bottom: 5px;
+        }
+
+        .dj-card-content p {
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        .dj-social a {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin: 0 8px;
+            transition: color 0.3s;
+        }
+
+        .dj-social a:hover {
+            color: var(--primary);
+        }
+
+        .fanbase-form {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+
+        .fanbase-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .fanbase-form input[type="text"],
+        .fanbase-form input[type="email"],
+        .fanbase-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid var(--primary);
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--secondary);
+        }
+
+        .fanbase-form button {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .fanbase-form button:hover {
+            background: var(--accent-light);
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .photo-item {
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 3px solid var(--primary);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .photo-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* --- SHOP STYLES (NEW) --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--primary);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 10px 30px rgba(255, 0, 38, 0.5);
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-info h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .product-info p {
+            margin-bottom: 15px;
+            color: #ccc;
+            flex-grow: 1;
+        }
+
+        .customization-options {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px dashed rgba(255, 0, 38, 0.5);
+            border-radius: 8px;
+        }
+
+        .customization-options label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--accent-light);
+        }
+
+        .customization-options input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid var(--primary);
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--secondary);
+            border-radius: 5px;
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 12px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .add-to-cart-btn:hover {
+            background: var(--accent-light);
+            transform: scale(1.02);
+        }
+
+        /* Shopping Cart Banner */
+        #cart-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 -5px 15px rgba(255, 0, 38, 0.5);
+            z-index: 1000;
+            display: none; /* Hidden by default */
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        #cart-banner:hover {
+            background: var(--accent-light);
+        }
+
+        /* Cart Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: var(--card-bg);
+            margin: 5% auto;
+            padding: 20px;
+            border: 2px solid var(--primary);
+            width: 90%;
+            max-width: 600px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 0, 38, 0.7);
+        }
+
+        .close-btn {
+            color: var(--primary);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: var(--accent-light);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        #cart-items {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        #cart-items li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 0, 38, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .remove-item-btn {
+            background: none;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .remove-item-btn:hover {
+            color: var(--accent-light);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: #008000; /* Green for checkout */
+            color: var(--secondary);
+            padding: 15px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .checkout-btn:hover {
+            background: #00b300;
+        }
+
+        /* Checkout Modal */
+        #checkout-modal .modal-content {
+            max-width: 400px;
+        }
+
+        #checkout-modal .checkout-option {
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        #checkout-modal .checkout-option:hover {
+            background: var(--accent-light);
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .logo-container, .dj-image {
+                margin-top: 0;
+                width: 120px;
+                height: 150px;
+            }
+
+            .logo-container img, .dj-image img {
+                width: 114px;
+                height: 144px;
+            }
+
+            .station-name {
+                font-size: 2rem;
+            }
+
+            .now-playing {
+                font-size: 14px;
+                padding: 6px 15px;
+            }
+
+            #listenBtn {
+                padding: 10px 25px;
+                font-size: 16px;
+            }
+
+            .player-controls {
+                flex-direction: column;
+            }
+
+            .volume-control {
+                width: 80%;
+                max-width: 300px;
+            }
+
+            nav {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .nav-link {
+                margin: 5px 0;
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                padding: 15px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content p {
+                font-size: 1rem;
+            }
+            
+            .highlight-text {
+                font-size: 1.1rem;
+            }
+            
+            /* --- MOBILE RESPONSIVENESS ADDITIONS --- */
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
         }
     </style>
 </head>
+
 <body>
-    <!-- Mobile Header -->
-    <div class="mobile-header">
-        <div class="logo-small">263<br>HIT</div>
-        <div class="station-name-mobile">263 HIT RADIO</div>
-        <div class="menu-toggle" id="menuToggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="menu-close" id="menuClose">
-            <i class="fas fa-times"></i>
-        </div>
-        <div class="mobile-nav">
-            <a href="#" class="nav-link active" data-page="home">
-                <i class="fas fa-home"></i> Home
-            </a>
-            <a href="#" class="nav-link" data-page="about">
-                <i class="fas fa-info-circle"></i> About Us
-            </a>
-            <a href="#" class="nav-link" data-page="events">
-                <i class="fas fa-calendar-alt"></i> Events
-            </a>
-            <a href="#" class="nav-link" data-page="stream">
-                <i class="fas fa-stream"></i> Listening Links
-            </a>
-            <a href="#" class="nav-link" data-page="djs">
-                <i class="fas fa-user-friends"></i> Meet The DJs
-            </a>
-            <a href="#" class="nav-link" data-page="fanbase">
-                <i class="fas fa-users"></i> Fanbase
-            </a>
-            <a href="#" class="nav-link" data-page="contact">
-                <i class="fas fa-phone"></i> Contact
-            </a>
-        </div>
-    </div>
-
-    <div class="overlay" id="overlay"></div>
-
-    <!-- Main Content -->
-    <div class="content">
-        <!-- Home Page -->
-        <section id="home-page" class="page-section active">
-            <div class="hero-mobile">
-                <h1>Welcome to 263 Hit Radio</h1>
-                <p>Your home for great music and positive vibes. Music continues playing as you browse!</p>
+    <!-- Combined Header with Navigation -->
+    <div class="sticky-header">
+ <div class="header-content">
+    <div class="live-banner" style="background: #000000; color: white; text-align: center; padding: 8px; font-family: 'Orbitron', sans-serif; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
+    🔴 Live Broadcast daily from 6pm EST / 7pm EST
+</div>
+    <header id="live-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="images/dj6.jpg" alt="263 hit Radio Radio radio Logo">
             </div>
 
-            <div class="grid-mobile">
-                <div class="block-mobile">
-                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1170&auto=format&fit=crop" alt="263 hit Radio Top HITS">
-                    <div class="block-content">
-                        <h3>263 hit Radio Top HITS</h3>
-                        <p>Submit your favourite hits today and hear them on air!</p>
-                        <a href="#" class="cta-mobile" id="submitSongBtn">Submit Now</a>
-                        
-                        <!-- Song Form (initially hidden) -->
-                        <div id="songForm" class="hidden">
-                            <form onsubmit="event.preventDefault(); submitSong();">
-                                <div class="form-group">
-                                    <label>Song Name:</label>
-                                    <input type="text" id="songName" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Artist Name:</label>
-                                    <input type="text" id="artistName" required>
-                                </div>
-                                <button type="submit" class="submit-btn">Send to 263hitradio@gmail.com</button>
-                            </form>
+            <div class="radio-info">
+                <div class="station-name">263 hit Radio Radio </div>
+                <div class="now-playing">Playing: <span id="track-title">Zimbabwe's Hottest Hits</span></div>
+                <div class="listen-options">
+                    <button id="listenBtn">
+                        <i class="fas fa-play"></i> LISTEN LIVE NOW
+                    </button>
+                </div>
+                <div class="share-container">
+                    <button class="share-btn" id="shareBtn">
+                        <i class="fas fa-share-alt"></i> SHARE
+                    </button>
+                    <div class="share-options" id="shareOptions">
+                        <div class="share-option" data-type="facebook">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </div>
+                        <div class="share-option" data-type="twitter">
+                            <i class="fab fa-twitter"></i> Twitter
+                        </div>
+                        <div class="share-option" data-type="whatsapp">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </div>
+                        <div class="share-option" data-type="copy">
+                            <i class="fas fa-copy"></i> Copy Link
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="block-mobile">
-                    <img src="images/dj6.jpg" alt="DJ performing live" class="event-slide active">
-                    <div class="block-content">
-                        <h3>Upcoming Events</h3>
-                        <p>Want your favorite tracks on the air? Check out upcoming events and cast your vote!</p>
-                        <a href="#" class="cta-mobile" data-page="events">Go to Events</a>
+            <div class="dj-player-section">
+                <div class="dj-image">
+                    <img id="djMainImage" src="images/dj6.jpg" alt="Current DJ">
+                </div>
+                <div class="dj-name" id="djName">DJ Jamza</div>
+                <div class="player-controls">
+                    <div class="volume-control">
+                        <i class="fas fa-volume-down"></i>
+                        <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="0.7">
+                        <i class="fas fa-volume-up"></i>
                     </div>
                 </div>
+                <audio id="radioPlayer" src="https://altair.streamerr.co/8180/stream" preload="none"></audio>
+            </div>
+        </div>
+    </header>
+</div>
+        </div>
+        <script>
+       // Detailed DJ schedule with times (day, start, end, dj, show, img)
+// day: 0=Sunday, 1=Monday, ... 6=Saturday
+// times in 24-hour format
+const djSchedule = [
+[ // Sunday
+    { start: [9, 0], end: [12, 0], dj: "Dr Oliver Chigariro", show: "Lovers Lounge", img: "images/dj4.jpg" },
+    { start: [16, 0], end: [19, 0], dj: "DJ Thembie okaMpangazitha", show: "Gospel Gold", img: "images/dj8.jpg" },
+    { start: [19, 0], end: [22, 0], dj: "DJ Lassi Jamu", show: "Rhythm Connect", img: "images/dj7s.jpg" }
+],
+[ // Monday
+    { start: [19, 0], end: [22, 0], dj: "DJ Jamza", show: "Massive Monday vibes", img: "images/dj1.jpg" },
+    { start: [22, 0], end: [1, 0], dj: "DJ Warren", show: "Monday Mellow Madness", img: "images/dj5.jpg" }
+],
+[ // Tuesday
+    { start: [19, 0], end: [22, 0], dj: "Bamudiki Munya WekwaThela", show: "263 hit Radio RadioConnection", img: "images/dj2.jpg" }
+],
+[ // Wednesday
+    { start: [19, 0], end: [22, 0], dj: "Steve Ka Sithole", show: "Nhubu Diaries", img: "images/dj3.jpg" },
+    { start: [22, 0], end: [1, 0], dj: "DJ Lassi Jamu", show: "Global Grooves", img: "images/dj7s.jpg" }
+],
+[ // Thursday
+    { start: [19, 0], end: [22, 0], dj: "Steve Ka Sithole", show: "Old School Jams", img: "images/dj3.jpg" }
+],
+[ // Friday
+    { start: [19, 0], end: [23, 0], dj: "Bamudiki Munya WekwaThela", show: "The Weekend Crossover Show", img: "images/dj2.jpg" }
+],
+[ // Saturday
+    { start: [16, 0], end: [19, 0], dj: "DJ Thembie okaMpangazitha", show: "Mutserendende we Ngoma", img: "images/dj8.jpg" },
+    { start: [19, 0], end: [23, 0], dj: "DJ Warren", show: "Sounds on Saturday", img: "images/dj5.jpg" }
+]
+];
 
-                <div class="block-mobile">
+// Unsplash photo for Auto DJ
+const autoDjPhoto = "images/dj6.jpg";
+
+function getCurrentDJ() {
+    const now = new Date();
+    const day = now.getDay(); // 0-6
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const currentTime = hours * 60 + minutes;
+
+    // If no DJ is scheduled, show Music Interlude
+    if (!djSchedule[day] || djSchedule[day].length === 0) {
+        return { dj: "Music Interlude", show: "Playing the best hits", img: autoDjPhoto };
+    }
+
+    // Check each time slot for today
+    for (const slot of djSchedule[day]) {
+        const startTime = slot.start[0] * 60 + slot.start[1];
+        const endTime = slot.end[0] * 60 + slot.end[1];
+        if (currentTime >= startTime && currentTime <= endTime) {
+            return slot;
+        }
+    }
+
+    // If no slot matches, show Auto DJ
+    return { dj: "Music Interlude", show: "Playing the best hits", img: autoDjPhoto };
+}
+
+function updateDJImage() {
+    const dj = getCurrentDJ();
+    const img = document.getElementById('djMainImage');
+    const djNameElement = document.getElementById('djName');
+    if (img) {
+        img.src = dj.img;
+        img.alt = dj.dj;
+    }
+    if (djNameElement) {
+        djNameElement.textContent = dj.dj;
+    }
+}
+
+// Update on load and every 5 minutes
+updateDJImage();
+setInterval(updateDJImage, 5 * 60 * 1000);
+        </script>
+        
+        <!-- Navigation -->
+        <nav>
+            <a href="#" class="nav-link active" data-page="home">Home</a>
+            <a href="#" class="nav-link" data-page="about">About Us</a>
+            <a href="#" class="nav-link" data-page="events">Events</a>
+            <a href="#" class="nav-link" data-page="past-events">Past Events</a>
+            <a href="#" class="nav-link" data-page="stream">Listening Links</a>
+            <a href="#" class="nav-link" data-page="djs">meet the djs</a>
+            <a href="#" class="nav-link" data-page="fanbase">Fanbase</a>
+             <a href="#" class="nav-link" data-page="shop">Shop</a>
+            <a href="#" class="nav-link" data-page="photos">Meet & Mingle Photos</a>
+            <a href="#" class="nav-link" data-page="contact">Contact</a>
+        </nav>
+    </div>
+<!-- About Us Page -->
+<section id="about-page" class="page-section">
+    <div class="glass-card">
+        <h2 class="section-title">🎙️ About Us</h2>
+        <div class="about-content">
+            <p>Hello and welcome to 263 hit Radio Radio (263 hit Radio) the radio Station of Choice where people with like minded ideas meet and mingle where passion meets purpose we bring you the best in music, entertainment and education.</p>
+            
+            <p>Founded in November 2024, 263 hit Radio Radio was created to bring together joy, love and happiness to its fans. Whether you're tuning in for the music, the stories, or the vibes, you're part of a community that celebrates and connects everyone. Our live broadcasting starts from 6pm GMT daily.</p>
+            
+            <p class="highlight-text">Give us a try and let us know what you think. 263 hit Radio Radio - a Station of Pure love and Entertainment.</p>
+        </div>
+    </div>
+
+    <style>
+        .about-content {
+            padding: 20px;
+            line-height: 1.8;
+            color: #e0e0e0;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .highlight-text {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            background: rgba(227, 25, 55, 0.1);
+            border-left: 4px solid var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            .about-content p {
+                font-size: 1rem;
+            }
+            
+            .highlight-text {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</section>
+
+   <!-- Page Content -->
+    <div id="content">
+        <!-- Home Page -->
+        <section id="home-page" class="page-section active">
+           <div class="hero">
+            <h1>Welcome to 263 hit Radio Radio</h1>
+            <p>Your home for great music and positive vibes. Music continues playing as you browse!</p>
+        </div>
+
+    <div class="grid">
+    <div class="block">
+        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1170&auto=format&fit=crop"
+            alt="263 hit Radio Top HITS">
+        <div class="block-content">
+            <h3>263 hit Radio Radio Top HITS</h3>
+            <p>Submit your favourite hits today and hear them on air!</p>
+            <a href="#" class="cta" id="submitSongBtn">Submit Now</a>
+            
+            <!-- Song Form (initially hidden) -->
+            <div id="songForm" style="display:none; margin-top:15px; padding:15px; background:rgba(0,0,0,0.7); border-radius:10px;">
+                <form onsubmit="event.preventDefault(); submitSong();" style="display:grid; gap:10px;">
+                    <div style="display:grid;">
+                        <label style="color:white; font-weight:bold;">Song Name:</label>
+                        <input type="text" id="songName" required style="padding:8px; border-radius:5px; border:none;">
+                    </div>
+                    <div style="display:grid;">
+                        <label style="color:white; font-weight:bold;">Artist Name:</label>
+                        <input type="text" id="artistName" required style="padding:8px; border-radius:5px; border:none;">
+                    </div>
+                    <button type="submit" style="background:red; color:white; border:none; padding:10px; border-radius:5px; cursor:pointer; font-weight:bold;">
+                        Send to 263hitradio@gmail.com
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+         <div class="block">
+    <div class="event-slideshow">
+        <img src="images/dj6.jpg" alt="DJ 6 performing live" class="event-slide active">
+    </div>
+    <div class="block-content">
+        <h3>Upcoming Events</h3>
+        <p>Want your favorite tracks on the air? Check out upcoming events and cast your vote!</p>
+        <a href="#" class="cta" onclick="navigateToPage('events'); return false;">Go to Events</a>
+    </div>
+</div>
+<script>
+// Song submission functionality
+document.getElementById('submitSongBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    const form = document.getElementById('songForm');
+    form.style.display = form.style.display === 'none' ? 'block' : 'none';
+});
+
+function submitSong() {
+    const songName = document.getElementById('songName').value;
+    const artistName = document.getElementById('artistName').value;
+    
+    const subject = `Song Submission: ${songName}`;
+    const body = `Song Name: ${songName}\nArtist: ${artistName}\n\nI'd like to hear this on 263 hit Radio Radio!`;
+    window.location.href = `mailto:263hitradio@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Reset and hide form
+    document.getElementById('songForm').style.display = 'none';
+    document.getElementById('songName').value = '';
+    document.getElementById('artistName').value = '';
+}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.event-slide');
+    let currentSlide = 0;
+    
+    function cycleSlides() {
+        // Hide all slides
+        slides.forEach(slide => slide.classList.remove('active'));
+        
+        // Show current slide
+        slides[currentSlide].classList.add('active');
+        
+        // Move to next slide
+        currentSlide = (currentSlide + 1) % slides.length;
+    }
+    
+    // Change slide every 5 seconds
+    setInterval(cycleSlides, 5000);
+    
+    // Initialize first slide
+    cycleSlides();
+});
+</script>
+
+            <div class="block dj-slideshow-block">
+                <div class="dj-slideshow">
                     <img src="images/dj1.jpg" alt="DJ 1" class="dj-slide active">
-                    <div class="block-content">
-                        <h3>Meet the DJs</h3>
-                        <p>Get to know our radio hosts. Passionate, fun, and ready to rock your day.</p>
-                        <a href="#" class="cta-mobile" data-page="djs">View Profiles</a>
-                    </div>
+                    <img src="images/dj2.jpg" alt="DJ 2" class="dj-slide">
+                    <img src="images/dj3.jpg" alt="DJ 3" class="dj-slide">
+                    <img src="images/dj4.jpg" alt="DJ 4" class="dj-slide">
+                    <img src="images/dj5.jpg" alt="DJ 5" class="dj-slide">
+                    <img src="images/dj6.jpg" alt="DJ 6" class="dj-slide">
                 </div>
+                <div class="block-content">
+                    <h3>Meet the DJs</h3>
+                    <p>Get to know our radio hosts. Passionate, fun, and ready to rock your day.</p>
+                    <a href="#" class="cta" onclick="navigateToPage('contact'); return false;">View Profiles</a>
+                </div>
+            </div>
+            <style>
+            .dj-slideshow-block .dj-slideshow {
+                position: relative;
+                height: 200px;
+                overflow: hidden;
+                border-bottom: 3px solid var(--primary);
+                background: #181818;
+            }
+            .dj-slide {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                opacity: 0;
+                transition: opacity 0.5s;
+            }
+            .dj-slide.active {
+                opacity: 1;
+            }
+            </style>
+            <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const djSlides = document.querySelectorAll('.dj-slide');
+                let djSlideIndex = 0;
+                djSlides[0].classList.add('active');
+                setInterval(() => {
+                    djSlides[djSlideIndex].classList.remove('active');
+                    djSlideIndex = (djSlideIndex + 1) % djSlides.length;
+                    djSlides[djSlideIndex].classList.add('active');
+                }, 2500);
+            });
+            </script>
 
-                <div class="block-mobile">
-                    <img src="fan-photos/fan1 (1).jpeg" alt="Fan Photo" class="slide">
-                    <div class="block-content">
-                        <h3>Meet Our Fans</h3>
-                        <p>Check out our amazing community of music lovers!</p>
-                        <a href="#" class="cta-mobile" data-page="fanbase">Join Fanbase</a>
-                    </div>
+            <div class="block">
+                <div class="fan-slideshow">
+                    <img src="fan-photos/fan1 (1).jpeg" alt="Fan Photo 1" class="slide">
+                    <img src="fan-photos/fan1 (2).jpeg" alt="Fan Photo 2" class="slide">
+                    <img src="fan-photos/fan1 (3).jpeg" alt="Fan Photo 3" class="slide">
+                    <img src="fan-photos/fan1 (4).jpeg" alt="Fan Photo 4" class="slide">
+                    <img src="fan-photos/fan1 (5).jpeg" alt="Fan Photo 5" class="slide">
+                    <img src="fan-photos/fan1 (6).jpeg" alt="Fan Photo 6" class="slide">
+                    <img src="fan-photos/fan1 (7).jpeg" alt="Fan Photo 7" class="slide">
+                    <img src="fan-photos/fan1 (8).jpeg" alt="Fan Photo 8" class="slide">
+                    <img src="fan-photos/fan1 (9).jpeg" alt="Fan Photo 9" class="slide">
+                    <img src="fan-photos/fan1 (10).jpeg" alt="Fan Photo 10" class="slide">
+                    <img src="fan-photos/fan1 (11).jpeg" alt="Fan Photo 11" class="slide">
+                    <img src="fan-photos/fan1 (12).jpeg" alt="Fan Photo 12" class="slide">
+                </div>
+                <div class="block-content">
+                    <h3>Meet Our Fans</h3>
+                    <p>Check out our amazing community of music lovers!</p>
+                    <a href="#" class="cta" onclick="navigateToPage('fanbase'); return false;">Join Fanbase</a>
                 </div>
             </div>
 
-            <div class="countdown-container-mobile">
-                <h2 class="countdown-title-mobile">Countdown to Meet & Mingle Event</h2>
-                <div class="countdown-timer-mobile">
-                    <div class="countdown-item-mobile">
-                        <span class="countdown-number-mobile" id="days">00</span>
-                        <span class="countdown-label-mobile">Days</span>
+            <style>
+            .fan-slideshow {
+                position: relative;
+                height: 200px;
+                overflow: hidden;
+                border-bottom: 3px solid var(--primary);
+            }
+
+            .slide {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0;
+                transition: opacity 0.5s ease-in-out;
+                cursor: pointer;
+            }
+
+            .slide.active {
+                opacity: 1;
+            }
+            </style>
+
+            <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const slides = document.querySelectorAll('.slide');
+                let currentSlide = 0;
+
+                // Initialize first slide
+                slides[0].classList.add('active');
+
+                // Auto advance slides
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }, 3000);
+
+                // Add click handler to navigate to fanbase
+                slides.forEach(slide => {
+                    slide.addEventListener('click', () => {
+                        navigateToPage('fanbase');
+                    });
+                });
+            });
+            </script>
+        </div>
+        <!-- Meet the Fans Section -->
+        <section class="fans-section">
+            <h2 class="section-title">Meet the Fans</h2>
+            <div class="fans-grid">
+                <!-- Fan 1 -->
+                <div class="fan-card">
+                    <img src="fan-photos/fan1 (1).jpeg" alt="Fan 1">
+                    <div class="fan-info">
+                        <h3>Batsi Mahara</h3>
+                        <p>"Mafaro Ngaawande ne 263 hit Radio Radio!"</p>
                     </div>
-                    <div class="countdown-separator-mobile">:</div>
-                    <div class="countdown-item-mobile">
-                        <span class="countdown-number-mobile" id="hours">00</span>
-                        <span class="countdown-label-mobile">Hours</span>
+                </div>
+                
+                <!-- Fan 2 -->
+                <div class="fan-card">
+                    <img src="fan-photos/fan1 (2).jpeg" alt="Fan 2">
+                    <div class="fan-info">
+                        <h3>Fatima.</h3>
+                        <p>"263 hit Radio RadioIs the place to be Good Music so much love"</p>
                     </div>
-                    <div class="countdown-separator-mobile">:</div>
-                    <div class="countdown-item-mobile">
-                        <span class="countdown-number-mobile" id="minutes">00</span>
-                        <span class="countdown-label-mobile">Minutes</span>
+                </div>
+                
+                <!-- Fan 3 -->
+                <div class="fan-card">
+                    <img src="fan-photos/fan1 (3).jpeg" alt="Fan 3">
+                    <div class="fan-info">
+                        <h3>Manya</h3>
+                        <p>"I'm loving with dj Auto on radio 263,radio Nakaa,radio bunandi. The hosts are knowledgeable and entertaining,and the topics are really interesting, like nhubu diaries. I think you'd enjoy it,you should give it a try...263 hit Radio radio."</p>
                     </div>
-                    <div class="countdown-separator-mobile">:</div>
-                    <div class="countdown-item-mobile">
-                        <span class="countdown-number-mobile" id="seconds">00</span>
-                        <span class="countdown-label-mobile">Seconds</span>
+                </div>
+                
+                <!-- Fan 4 -->
+                <div class="fan-card">
+                    <img src="fan-photos/fan1 (4).jpeg" alt="Fan 4">
+                    <div class="fan-info">
+                        <h3>Malikebo</h3>
+                        <p>"I'm impressed with the sound quality of this radio its really rich and full.
+263 hit Radio radio"</p>
+                    </div>
+                </div>
+                
+                <!-- Fan 5 -->
+                <div class="fan-card">
+                    <img src="fan-photos/fan1 (5).jpeg" alt="Fan 5">
+                    <div class="fan-info">
+                        <h3>AJ</h3>
+                        <p>" I love 263 hit Radio RadioRadio clear sound friendly people"</p>
+                    </div>
+                </div>
+                
+                <!-- Fan 6 -->
+                <div class="fan-card">
+                    <img src="fan-photos/fan1 (6).jpeg" alt="Fan 6">
+                    <div class="fan-info">
+                        <h3>Innocent</h3>
+                        <p>"Its nyc to be a family member of 263 hit Radio Radio. We learn a lot evryday. at  the same time given opportunities in so many ways. Cum. n join  us friends this sation is sweet ❤️"</p>
+                    </div>
+                </div>
+                
+                <!-- Fan 7 -->
+                <div class="fan-card">
+                    <img src="fan-photos/fan1 (7).jpeg" alt="Fan 7">
+                    <div class="fan-info">
+                        <h3>Jabinos Zingori</h3>
+                        <p>"263 hit Radio Radio where love flows from the studios to the listeners.
+We broadcast on Loveband airwaves. 
+Click www.263hitradio.com and let the love flow"</p>
+                    </div>
+                </div>
+                
+                <!-- Fan 8 -->
+                <div class="fan-card">
+                    <img src="fan-photos/fan1 (8).jpeg" alt="Fan 8">
+                    <div class="fan-info">
+                        <h3>Tivvy</h3>
+                        <p>"263 hit Radio Radiois just Naka try it log on to www.263hitradio.com"</p>
+                    </div>
+                </div>
+                
+                <!-- Fan 9 -->
+                <div class="fan-card">
+                    <img src="fan-photos/fan1 (9).jpeg" alt="Fan 9">
+                    <div class="fan-info">
+                        <h3>Nyari</h3>
+                        <p>"263 hit Radio Radio is where real love is found. We're really blessed to have this radio station, the presenters know how to interact with the listeners and i like how people are united on this station. 263 hit Radio Radio is my stress reliever. May the good Lord continue to bless the founder of this station ,the presenters and the listeners (263 hit Radio Radio family)"</p>
+                    </div>
+                </div>
+                
+                <!-- Fan 10 -->
+                <div class="fan-card">
+                    <img src="fan-photos/fan1 (10).jpeg" alt="Fan 10">
+                    <div class="fan-info">
+                        <h3>Mr Goodman Tembo</h3>
+                        <p>"263 hit Radio Radio has become one of my best and favorite Radio station. The radio station  entertain us ,educate and informative. 263hitradio is my Yard 🎧."</p>
+                    </div>
+                </div>
+                
+                <!-- Fan 11 -->
+                <div class="fan-card">
+                    <img src="fan-photos/fan1 (11).jpeg" alt="Fan 11">
+                    <div class="fan-info">
+                        <h3>Lasty Jamu</h3>
+                        <p>"263 hit Radio Radio ndi mawu atsopano komanso osangalatsa pa nkhani ya zosangalatsa, omwe amanyadira kuyimira chikhalidwe cha a Zimbabwe, nyimbo komanso luso. Ndi mphamvu yake yosangalatsa, nyimbo zosiyanasiyana komanso kulumikizana ndi anthu, imabweretsa omvera pamodzi kudzera mu mphamvu ya nyimbo zabwino komanso zokambirana zothandiza. Imeneyi si wailesi yokha — ndi kayendedwe komwe kumalemekeza luso, kulimbikitsa achinyamata, komanso kusunga mtima wa nyimbo za ku Zim kuti uzapitirire. Pitirizani kukwera, 263 hit Radio Radio! 🇿🇼🎶🔥"</p>
+                    </div>
+                </div>
+                
+<!-- Fan 13 -->
+<div class="fan-card">
+    <img src="fan-photos/fan1 (13).jpeg" alt="Fan 13">
+    <div class="fan-info">
+        <h3>Maheavy</h3>
+        <p>"263 hit Radio Radio 263 hit Radio station of Therapy, love, peace and availability — medicine of stress anytime."</p>
+    </div>
+</div>
+
+<!-- Fan 13 -->
+<div class="fan-card">
+    <img src="fan-photos/fan1 (15).jpeg" alt="Fan 13">
+    <div class="fan-info">
+        <h3>Maggie</h3>
+        <p>"263 Hit Radio is your favorite station  that offers a diverse range of music..talk shows and information that listeners find valuable..It delivers  clear sound  and crisp audios  without static and the Presenters are welcoming and easy to connect with...Let's enjoy 263 Hit Radio together on www.263"</p>
+    </div>
+</div>
+
+
+<!-- Fan 13 -->
+<div class="fan-card">
+    <img src="fan-photos/fan1 (16).jpeg" alt="Fan 13">
+    <div class="fan-info">
+        <h3>Slay Studios</h3>
+        <p>"I love 263 Hit Radio, it is in my veins, tell a friend to tell a friend, you all invited to join n be the ambassador."</p>
+    </div>
+</div>
+
+
+
+<!-- Fan 13 -->
+<div class="fan-card">
+    <img src="fan-photos/fan1 (17).jpeg" alt="Fan 13">
+    <div class="fan-info">
+        <h3>Alex</h3>
+        <p>"263 hit radio is the place to be 24/7."</p>
+    </div>
+</div>
+
+
+
+<!-- Fan 14 -->
+<div class="fan-card">
+    <img src="fan-photos/fan1 (14).jpeg" alt="Fan 14">
+    <div class="fan-info">
+        <h3>Mr Marufu</h3>
+        <p>"I'm loving the sound — on point!"</p>
+    </div>
+</div>
+
+                <!-- Fan 12 -->
+                <div class="fan-card">
+                    <img src="fan-photos/fan1 (12).jpeg" alt="Fan 12">
+                    <div class="fan-info">
+                        <h3>Mrs Jays</h3>
+                        <p>"A big thank you to 263 hit Radio Radio and all the amazing presenters! You are a true treasure to the community — bringing great music, inspiring stories, and exciting conversations. Every show is full of energy and passion. Keep up the excellent broadcasting — we truly appreciate all your efforts!"</p>
                     </div>
                 </div>
             </div>
+       
 
-            <div class="glass-card">
-                <h2 class="section-title">Meet the Fans</h2>
-                <div class="fans-grid-mobile">
-                    <!-- Fan cards will be dynamically loaded -->
-                </div>
-            </div>
-
-            <div class="glass-card">
-                <h2 class="section-title">Weekly Show Schedule</h2>
-                <table class="schedule-table">
-                    <thead>
-                        <tr>
-                            <th>Day</th>
-                            <th>Show</th>
-                            <th>Host</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Monday</td>
-                            <td>Massive Monday vibes</td>
-                            <td>DJ Jamza</td>
-                        </tr>
-                        <tr>
-                            <td>Tuesday</td>
-                            <td>263 hit Radio Connection</td>
-                            <td>Bamdiki Munya</td>
-                        </tr>
-                        <tr>
-                            <td>Wednesday</td>
-                            <td>Nhubu Diaries</td>
-                            <td>Steve Ka Sithole</td>
-                        </tr>
-                        <tr>
-                            <td>Thursday</td>
-                            <td>Old School Jams</td>
-                            <td>Steve Ka Sithole</td>
-                        </tr>
-                        <tr>
-                            <td>Friday</td>
-                            <td>Weekend Crossover</td>
-                            <td>Bamdiki Munya</td>
-                        </tr>
-                        <tr>
-                            <td>Saturday</td>
-                            <td>DJ Mix</td>
-                            <td>DJ Warren</td>
-                        </tr>
-                        <tr>
-                            <td>Sunday AM</td>
-                            <td>Lovers Lounge</td>
-                            <td>Dr Oliver Chigariro</td>
-                        </tr>
-                        <tr>
-                            <td>Sunday PM</td>
-                            <td>Gospel Connection</td>
-                            <td>Various</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="glass-card text-center">
-                <h2 class="section-title">Join Our WhatsApp Community</h2>
-                <a href="https://chat.whatsapp.com/KnwSpDRRsRG3JqqCPfanB1" class="cta-mobile whatsapp-btn" target="_blank">
+        <style>
+            .fans-section {
+                margin-top: 50px;
+                padding: 20px;
+                background: rgba(0, 0, 0, 0.7);
+                border-radius: 10px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            }
+            
+            .fans-section .section-title {
+                text-align: center;
+                color: var(--primary);
+                font-size: 2rem;
+                margin-bottom: 30px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+            
+            .fans-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+                padding: 10px;
+            }
+            
+            .fan-card {
+                background: rgba(227, 25, 55, 0.1);
+                border-radius: 8px;
+                overflow: hidden;
+                transition: transform 0.3s, box-shadow 0.3s;
+                border: 1px solid rgba(227, 25, 55, 0.2);
+            }
+            
+            .fan-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(227, 25, 55, 0.2);
+            }
+            
+            .fan-card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                border-bottom: 3px solid var(--primary);
+            }
+            
+            .fan-info {
+                padding: 15px;
+                text-align: center;
+            }
+            
+            .fan-info h3 {
+                color: var(--primary);
+                margin-bottom: 10px;
+                font-size: 1.2rem;
+            }
+            
+            .fan-info p {
+                color: #ddd;
+                font-style: italic;
+                font-size: 0.9rem;
+                margin: 0;
+            }
+        </style>
+        
+        <div class="glass-card">
+            <h2 class="section-title">📅 Weekly Show Schedule</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Time (CAT)</th>
+                        <th>Show</th>
+                        <th>Host</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monday</td>
+                        <td>19:00–22:00</td>
+                        <td>Massive Monday vibes</td>
+                        <td>DJ Jamza</td>
+                    </tr>
+                    <tr>
+                        <td>Monday</td>
+                        <td>22:00–01:00</td>
+                        <td>Monday Mellow Madness</td>
+                        <td>DJ Warren</td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday</td>
+                        <td>19:00–22:00</td>
+                        <td>263 hit Radio RadioConnection</td>
+                        <td>Bamdiki Munya WekwaThela</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>19:00–22:00</td>
+                        <td>Nhubu Diaries</td>
+                        <td>Steve Ka Sithole</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>22:00–01:00</td>
+                        <td>Global Grooves</td>
+                        <td>DJ Lassi Jamu</td>
+                    </tr>
+                    <tr>
+                        <td>Thursday</td>
+                        <td>19:00–22:00</td>
+                        <td>Old School Jams</td>
+                        <td>Steve Ka Sithole</td>
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td>19:00–23:00</td>
+                        <td>The Weekend Crossover Show</td>
+                        <td>Bamdiki Munya WekwaThela</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday</td>
+                        <td>16:00–19:00</td>
+                        <td>Mutserendende we Ngoma</td>
+                        <td>DJ Thembie okaMpangazitha</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday</td>
+                        <td>19:00–23:00</td>
+                        <td>Sounds on Saturday</td>
+                        <td>DJ Warren</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>09:00–12:00</td>
+                        <td>Lovers Lounge</td>
+                        <td>Dr Oliver Chigariro</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>16:00–19:00</td>
+                        <td>Gospel Gold</td>
+                        <td>DJ Thembie okaMpangazitha</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>19:00–22:00</td>
+                        <td>Rhythm Connect</td>
+                        <td>DJ Lassi Jamu</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+         </section>
+        <!-- WhatsApp Community -->
+        <section class="glass-card">
+            <h2 class="section-title">💬 Join Our WhatsApp Community</h2>
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="https://chat.whatsapp.com/KnwSpDRRsRG3JqqCPfanB1" class="cta" target="_blank">
                     <i class="fab fa-whatsapp"></i> Join Now
                 </a>
             </div>
-
-            <div class="glass-card">
-                <h2 class="section-title">Request a Song</h2>
-                <form id="whatsappForm">
-                    <div class="form-group">
-                        <input type="text" id="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="title" placeholder="Song Title" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="artist" placeholder="Artist" required>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Request</button>
-                </form>
-            </div>
         </section>
 
-        <!-- About Us Page -->
-        <section id="about-page" class="page-section">
-            <div class="glass-card">
-                <h2 class="section-title">About Us</h2>
-                <div class="about-content">
-                    <p>Hello and welcome to 263 hit Radio Radio (263 hit Radio) the radio Station of Choice where people with like minded ideas meet and mingle where passion meets purpose we bring you the best in music, entertainment and education.</p>
-                    
-                    <p>Founded in November 2024, 263 hit Radio Radio was created to bring together joy, love and happiness to its fans. Whether you're tuning in for the music, the stories, or the vibes, you're part of a community that celebrates and connects everyone. Our live broadcasting starts from 6pm GMT daily.</p>
-                    
-                    <p class="highlight-text">Give us a try and let us know what you think. 263 hit Radio Radio - a Station of Pure love and Entertainment.</p>
+        <section class="glass-card">
+            <h2 class="section-title">Request a Song</h2>
+            <form id="whatsappForm">
+                <div style="display: grid; gap: 15px; max-width: 500px; margin: 0 auto;">
+                    <input type="text" id="name" placeholder="Your Name" required />
+                    <input type="text" id="title" placeholder="Song Title" required />
+                    <input type="text" id="artist" placeholder="Artist" required />
+                    <button type="submit" class="cta" style="width: 100%;">Send Request</button>
                 </div>
-            </div>
+            </form>
         </section>
-
-        <!-- Other page sections would follow the same pattern -->
-        <!-- Events, Stream, DJs, Fanbase, and Contact pages would be here -->
-
-        <section id="events-page" class="page-section">
-            <div class="glass-card">
-                <h2 class="section-title">Events Page Content</h2>
-                <p>Events content would go here...</p>
-            </div>
+    </section>
         </section>
-
-        <section id="stream-page" class="page-section">
-            <div class="glass-card">
-                <h2 class="section-title">Streaming Links</h2>
-                <p>Streaming links would go here...</p>
-            </div>
-        </section>
-
-        <section id="djs-page" class="page-section">
-            <div class="glass-card">
-                <h2 class="section-title">Meet The DJs</h2>
-                <p>DJ profiles would go here...</p>
-            </div>
-        </section>
-
-        <section id="fanbase-page" class="page-section">
-            <div class="glass-card">
-                <h2 class="section-title">Fanbase</h2>
-                <p>Fanbase content would go here...</p>
-            </div>
-        </section>
-
-        <section id="contact-page" class="page-section">
-            <div class="glass-card">
-                <h2 class="section-title">Contact Us</h2>
-                <div class="contact-cards-mobile">
-                    <div class="contact-card-mobile">
-                        <div class="contact-icon-mobile whatsapp">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <h3>WhatsApp Community</h3>
-                        <p>Join our active community of listeners</p>
-                        <a href="https://chat.whatsapp.com/KnwSpDRRsRG3JqqCPfanB1" class="contact-btn-mobile whatsapp-btn" target="_blank">Join Community</a>
-                    </div>
-
-                    <div class="contact-card-mobile">
-                        <div class="contact-icon-mobile chat">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <h3>Chat With Us</h3>
-                        <p>Have questions or want to request a song?</p>
-                        <a href="https://wa.me/447850930017" class="contact-btn-mobile chat-btn" target="_blank">Start Chat</a>
-                    </div>
-
-                    <div class="contact-card-mobile">
-                        <div class="contact-icon-mobile email">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3>Email Us</h3>
-                        <p>Send us your thoughts, feedback, or business inquiries</p>
-                        <a href="mailto:263hitradio@gmail.com" class="contact-btn-mobile email-btn">Send Email</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <!-- Events Page -->
+<section id="events-page" class="page-section">
+    <div class="event-promo glass-card">
+        <h2 class="section-title">Upcoming Events</h2>
+        <p style="text-align: center; margin-bottom: 30px; color: #e0e0e0;">Stay tuned for exciting upcoming events! Check back soon for announcements.</p>
     </div>
 
-    <!-- Mobile Player Controls -->
-    <div class="mobile-player">
-        <button class="play-btn" id="playBtn">
-            <i class="fas fa-play"></i>
-        </button>
-        <div class="now-playing-mobile">
-            <div id="track-title-mobile">Zimbabwe's Hottest Hits</div>
+<!-- Removed duplicate countdown block to fix countdown updates -->
+
+    <style>
+        .event-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+            background: rgba(0,0,0,0.7);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--primary);
+        }
+        
+        .event-banner {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .event-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        .event-details {
+            padding: 20px;
+        }
+        
+        .event-details h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .event-details h3 {
+            color: #fff;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        .event-details p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .event-details a {
+            color: var(--red);
+            text-decoration: underline;
+        }
+        
+        .event-tagline {
+            color: var(--primary);
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        .registration-form {
+            margin-top: 20px;
+            background: rgba(227,25,55,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(227,25,55,0.3);
+        }
+        
+        .registration-form h3 {
+            color: var(--red);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .registration-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid var(--primary);
+            background: rgba(0,0,0,0.3);
+            color: white;
+        }
+        
+        .registration-form button {
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        @media (min-width: 768px) {
+            .event-container {
+                flex-direction: row;
+            }
+            
+            .event-banner {
+                width: 40%;
+                height: auto;
+            }
+            
+            .event-details {
+                width: 60%;
+            }
+        }
+    </style>
+
+    <script>
+
+
+    function submitFusionShow(event) {
+        event.preventDefault();
+        const name = document.getElementById('fusionAttendeeName').value;
+        const attendees = document.getElementById('fusionAttendeeCount').value;
+        const message = `🎤 Fusion Band Show Registration\n\n👤 Name: ${name}\n👥 Attendees: ${attendees}\n📅 Event: Fusion Band Live - July 26, 2025`;
+        window.open(`https://wa.me/447850930017?text=${encodeURIComponent(message)}`, '_blank');
+        event.target.reset();
+    }
+    </script>
+
+    <!-- Calendar Section -->
+    <div class="glass-card">
+        <div class="calendar-header">
+            <h2 class="section-title">Events Calendar</h2>
+            <div class="month-nav">
+                <button id="prevMonthBtn">&lt;&lt;</button>
+                <span id="calendarMonthLabel" style="font-size: 1.2rem; font-weight: bold;">Month Year</span>
+                <button id="nextMonthBtn">&gt;&gt;</button>
+            </div>
         </div>
-        <div class="volume-btn" id="volumeBtn">
-            <i class="fas fa-volume-up"></i>
-        </div>
-        <div class="volume-slider-container" id="volumeSliderContainer">
-            <input type="range" id="volumeControlMobile" min="0" max="1" step="0.1" value="0.7">
-        </div>
+        <table class="calendar-table">
+            <thead>
+                <tr>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                    <th>Sunday</th>
+                </tr>
+            </thead>
+            <tbody id="calendarTableBody">
+                <!-- Calendar rows will be generated by JS -->
+            </tbody>
+        </table>
     </div>
+            
+    <div class="event-form">
+        <h3 class="section-title">📤 Submit an Event</h3>
+        <form id="eventWhatsappForm" autocomplete="off">
+            <fieldset>
+                <legend>Your Details</legend>
+                <label>Name: <input type="text" name="Name" id="eventName" required /></label>
+                <label>Email: <input type="email" name="Email" id="eventEmail" required /></label>
+                <label>Contact Number: <input type="text" name="Contact Number" id="eventContact" required /></label>
+            </fieldset>
 
-    <audio id="radioPlayer" src="https://altair.streamerr.co/8180/stream" preload="none"></audio>
+            <fieldset>
+                <legend>Event Info</legend>
+                <label>Event Name: <input type="text" name="Event Name" id="eventTitle" required /></label>
+                <label>From: <input type="date" name="From Date" id="eventFrom" required /></label>
+                <label>To: <input type="date" name="To Date" id="eventTo" required /></label>
+                <label>Start Time: <input type="time" name="Start Time" id="eventStart" required /></label>
+                <label>End Time: <input type="time" name="End Time" id="eventEnd" required /></label>
+                <label>Location Name: <input type="text" name="Location Name" id="eventLocation" required /></label>
+                <label>Address: <input type="text" name="Address" id="eventAddress" required /></label>
+                <label>City/Town: <input type="text" name="City" id="eventCity" required /></label>
+                <label>Province: <input type="text" name="Province" id="eventProvince" required /></label>
+                <label>Event Price: <input type="text" name="Event Price" id="eventPrice" /></label>
+                <label>Event Contact Details: <input type="text" name="Event Contact Info" id="eventEventContact" /></label>
+                <label>Event Description:
+                    <textarea name="Event Description" id="eventDescription" maxlength="600" placeholder="Max 600 characters"
+                    required></textarea>
+                </label>
+                <label style="display: flex; align-items: center;">
+                    <input type="checkbox" id="eventConsent" required /> 
+                    <span style="margin-left: 10px;">I consent to my submitted data being collected and stored.</span>
+                </label>
+            </fieldset>
 
-    <!-- Footer -->
-    <div class="mobile-footer">
-        <p class="copyright">&copy; 2025 263 hit Radio Radio. All rights reserved.</p>
-        <div class="socials-mobile">
-            <a href="https://www.facebook.com/profile.php?id=100063670863603" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://x.com/263HitRadio" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/263hitradio/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.youtube.com/channel/UC1Z1c8g1c8g1c8g1c8g1c8g" target="_blank"><i class="fab fa-youtube"></i></a>
+            <button type="submit">📨 Submit Event</button>
+        </form>
+
+        <div class="disclaimer">
+            <h4>NOTES:</h4>
+            <ul>
+                <li>Please use Enter only in the event description box.</li>
+                <li>We use a 24-hour clock format.</li>
+                <li>Keep descriptions under 100 words (max 600 characters).</li>
+            </ul>
+
+            <h4>DISCLAIMER:</h4>
+            <ul>
+                <li>Events take up to 24 hours to appear.</li>
+                <li>Events after 2PM on Friday appear on Monday.</li>
+                <li>We can't guarantee your event will be read on air, but it will appear on the calendar.</li>
+            </ul>
         </div>
     </div>
 
     <script>
-        // DOM Elements
-        const menuToggle = document.getElementById('menuToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const menuClose = document.getElementById('menuClose');
-        const overlay = document.getElementById('overlay');
-        const navLinks = document.querySelectorAll('.nav-link');
-        const pageSections = document.querySelectorAll('.page-section');
-        const playBtn = document.getElementById('playBtn');
-        const volumeBtn = document.getElementById('volumeBtn');
-        const volumeSliderContainer = document.getElementById('volumeSliderContainer');
-        const volumeControlMobile = document.getElementById('volumeControlMobile');
-        const player = document.getElementById('radioPlayer');
-        const trackTitleMobile = document.getElementById('track-title-mobile');
-        const submitSongBtn = document.getElementById('submitSongBtn');
-        const songForm = document.getElementById('songForm');
-        const whatsappForm = document.getElementById('whatsappForm');
-        const fansGrid = document.querySelector('.fans-grid-mobile');
+    (function() {
+        // --- Calendar logic ---
+        const monthNames = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        let calendarDate = new Date();
+        calendarDate.setDate(1);
 
-        // Mobile Menu Toggle
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
+        const calendarMonthLabel = document.getElementById('calendarMonthLabel');
+        const calendarTableBody = document.getElementById('calendarTableBody');
+        const prevMonthBtn = document.getElementById('prevMonthBtn');
+        const nextMonthBtn = document.getElementById('nextMonthBtn');
 
-        menuClose.addEventListener('click', closeMenu);
-        overlay.addEventListener('click', closeMenu);
-
-        function closeMenu() {
-            mobileMenu.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = 'auto';
+        // Dummy event counts for demo (randomized for each month)
+        function getEventCount(day, month, year) {
+            // Otherwise, random events for demo
+            if (day === 0) return "";
+            return Math.floor(Math.random() * 10) + 1 + " Events";
         }
 
-        // Navigation
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetPage = link.getAttribute('data-page');
-                
-                // Update active link
-                navLinks.forEach(navLink => navLink.classList.remove('active'));
-                link.classList.add('active');
-                
-                // Show target page
-                pageSections.forEach(section => section.classList.remove('active'));
-                document.getElementById(`${targetPage}-page`).classList.add('active');
-                
-                // Close menu
-                closeMenu();
-                
-                // Scroll to top
-                window.scrollTo(0, 0);
+        function renderCalendar(date) {
+            const year = date.getFullYear();
+            const month = date.getMonth();
+            calendarMonthLabel.textContent = `${monthNames[month]} ${year}`;
+
+            // Get first day of the month (0=Sun, 1=Mon, ...)
+            const firstDay = new Date(year, month, 1);
+            // Calendar starts on Monday, so adjust (0=Mon, 6=Sun)
+            let startDay = firstDay.getDay() - 1;
+            if (startDay < 0) startDay = 6;
+
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            let html = "";
+            let day = 1 - startDay;
+            for (let row = 0; row < 6; row++) {
+                let tr = "<tr>";
+                for (let col = 0; col < 7; col++) {
+                    if (day > 0 && day <= daysInMonth) {
+                        let eventCount = getEventCount(day, month, year);
+                        let eventHtml = "";
+                        if (eventCount === "Fusion Band") {
+                            eventHtml = `<span class="event-count" style="background:#ffcc00;color:#0f0f0f;font-weight:bold;">Fusion Band</span>`;
+                        } else if (eventCount === "Meet & Mingle") {
+                            eventHtml = `<span class="event-count" style="background:var(--primary);color:#0f0f0f;font-weight:bold;">Meet & Mingle</span>`;
+                        } else if (eventCount) {
+                            eventHtml = `<span class="event-count">${eventCount}</span>`;
+                        }
+                        tr += `<td><span class="day-number">${day}</span>${eventHtml}</td>`;
+                    } else {
+                        tr += `<td></td>`;
+                    }
+                    day++;
+                }
+                tr += "</tr>";
+                html += tr;
+                if (day > daysInMonth) break;
+            }
+            calendarTableBody.innerHTML = html;
+
+            // Add click listeners for each day cell
+            Array.from(calendarTableBody.querySelectorAll("td")).forEach(td => {
+                const num = td.querySelector('.day-number');
+                if (num) {
+                    td.style.cursor = "pointer";
+                    td.onclick = function() {
+                        alert(`Events for ${monthNames[month]} ${num.textContent}, ${year} will be displayed here.`);
+                    };
+                }
             });
-        });
-
-        // Audio Player Controls
-        let isPlaying = false;
-
-        playBtn.addEventListener('click', () => {
-            if (isPlaying) {
-                player.pause();
-                playBtn.innerHTML = '<i class="fas fa-play"></i>';
-            } else {
-                player.play().catch(error => {
-                    console.error('Playback failed:', error);
-                    alert('Unable to play audio. Please try again later.');
-                });
-                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-            }
-            isPlaying = !isPlaying;
-        });
-
-        volumeBtn.addEventListener('click', () => {
-            volumeSliderContainer.classList.toggle('active');
-        });
-
-        volumeControlMobile.addEventListener('input', () => {
-            player.volume = volumeControlMobile.value;
-            
-            // Update volume icon based on level
-            const volumeIcon = volumeBtn.querySelector('i');
-            if (player.volume == 0) {
-                volumeIcon.className = 'fas fa-volume-mute';
-            } else if (player.volume < 0.5) {
-                volumeIcon.className = 'fas fa-volume-down';
-            } else {
-                volumeIcon.className = 'fas fa-volume-up';
-            }
-        });
-
-        // Track title rotation
-        const tracks = [
-            "Zimbabwe's Hottest Hits",
-            "Afrobeat Mix",
-            "Zim Dancehall Special",
-            "Reggae Classics",
-            "Urban Grooves Collection"
-        ];
-        let trackIndex = 0;
-
-        setInterval(() => {
-            trackIndex = (trackIndex + 1) % tracks.length;
-            trackTitleMobile.textContent = tracks[trackIndex];
-        }, 15000);
-
-        // Song submission form
-        submitSongBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            songForm.classList.toggle('hidden');
-        });
-
-        function submitSong() {
-            const songName = document.getElementById('songName').value;
-            const artistName = document.getElementById('artistName').value;
-            
-            const subject = `Song Submission: ${songName}`;
-            const body = `Song Name: ${songName}\nArtist: ${artistName}\n\nI'd like to hear this on 263 hit Radio Radio!`;
-            window.location.href = `mailto:263hitradio@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            // Reset and hide form
-            songForm.classList.add('hidden');
-            document.getElementById('songName').value = '';
-            document.getElementById('artistName').value = '';
         }
 
-        // WhatsApp form
-        whatsappForm.addEventListener('submit', (e) => {
+        prevMonthBtn.onclick = function() {
+            calendarDate.setMonth(calendarDate.getMonth() - 1);
+            renderCalendar(calendarDate);
+        };
+        nextMonthBtn.onclick = function() {
+            calendarDate.setMonth(calendarDate.getMonth() + 1);
+            renderCalendar(calendarDate);
+        };
+
+        // Initial render
+        renderCalendar(calendarDate);
+
+        // --- WhatsApp Event Form logic ---
+        const eventWhatsappForm = document.getElementById('eventWhatsappForm');
+        eventWhatsappForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const name = document.getElementById('name').value;
-            const title = document.getElementById('title').value;
-            const artist = document.getElementById('artist').value;
-            
-            const message = `Song Request\nName: ${name}\nSong: ${title}\nArtist: ${artist}`;
-            window.open(`https://wa.me/447850930017?text=${encodeURIComponent(message)}`, '_blank');
-            
-            // Reset form
-            whatsappForm.reset();
+            const name = document.getElementById('eventName').value.trim();
+            const email = document.getElementById('eventEmail').value.trim();
+            const contact = document.getElementById('eventContact').value.trim();
+            const eventTitle = document.getElementById('eventTitle').value.trim();
+            const from = document.getElementById('eventFrom').value;
+            const to = document.getElementById('eventTo').value;
+            const start = document.getElementById('eventStart').value;
+            const end = document.getElementById('eventEnd').value;
+            const location = document.getElementById('eventLocation').value.trim();
+            const address = document.getElementById('eventAddress').value.trim();
+            const city = document.getElementById('eventCity').value.trim();
+            const province = document.getElementById('eventProvince').value.trim();
+            const price = document.getElementById('eventPrice').value.trim();
+            const eventContact = document.getElementById('eventEventContact').value.trim();
+            const description = document.getElementById('eventDescription').value.trim();
+
+            const message =
+    `📅 *New Event Submission*
+    👤 Name: ${name}
+    📧 Email: ${email}
+    📱 Contact: ${contact}
+
+    🎫 Event: ${eventTitle}
+    🗓️ From: ${from}
+    🗓️ To: ${to}
+    ⏰ Start: ${start}
+    ⏰ End: ${end}
+    📍 Location: ${location}
+    🏠 Address: ${address}
+    🏙️ City: ${city}
+    🏞️ Province: ${province}
+    💵 Price: ${price}
+    ☎️ Event Contact: ${eventContact}
+    📝 Description: ${description}`;
+
+            // Send to the contact number provided by the user
+            let number = contact.replace(/\D/g, '');
+            if (number.startsWith('0')) number = '263' + number.slice(1);
+            if (!number.startsWith('263') && !number.startsWith('27') && !number.startsWith('44')) {
+                // fallback to default if not ZW/SA/UK
+                number = '447850930017';
+            }
+            const encodedMsg = encodeURIComponent(message);
+            const waUrl = `https://wa.me/${number}?text=${encodedMsg}`;
+            window.open(waUrl, '_blank');
         });
+    })();
+    </script>
+</section>
+<!-- Stream Alternatives Page -->
+<section id="stream-page" class="page-section">
+        <div class="glass-card">
+        <h2 class="section-title">🔊 Listen to 263 hit Radio Radio</h2>
+        <div class="stream-hero">
+            <img src="images/streamingbakground.jpeg" alt="Streaming Options">
+            <div class="hero-overlay">
+                <h1>Multiple Ways§ To Tune In</h1>
+                <p>Choose your preferred streaming method below</p>
+            </div>
+        </div>
+    </div>
 
-        // Countdown Timer
-        const countDownDate = new Date("Sep 13, 2025 12:00:00").getTime();
-        const countdown = setInterval(() => {
-            const now = new Date().getTime();
-            const distance = countDownDate - now;
+    <div class="glass-card">
+        <h2 class="section-title">🌐 Primary Streams</h2>
+        <div class="stream-grid">
+            <!-- Main Stream -->
+            <div class="stream-card highlight">
+                <div class="stream-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3>Main Stream</h3>
+                <p>Our flagship high-quality stream</p>
+                <a href="https://altair.streamerr.co/public/263hitradio" class="stream-button" target="_blank">
+                    <i class="fas fa-play"></i> Listen Now
+                </a>
+            </div>
             
-            if (distance < 0) {
-                clearInterval(countdown);
-                document.querySelector(".countdown-timer-mobile").innerHTML = 
-                    '<div class="countdown-ended">The event has started! 🎉</div>';
-                return;
+            <!-- Web Player -->
+            <div class="stream-card">
+                <div class="stream-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3>Web Player</h3>
+                <p>Direct browser streaming</p>
+                <a href="https://altair.streamerr.co/8180" class="stream-button" target="_blank">
+                    <i class="fas fa-play"></i> Open Player
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="glass-card">
+        <h2 class="section-title">📻 Radio Directories</h2>
+        <div class="stream-grid">
+            <!-- OneStopRadio -->
+            <div class="stream-card">
+                <div class="stream-icon">
+                    <i class="fas fa-broadcast-tower"></i>
+                </div>
+                <h3>TheOneStopRadio</h3>
+                <p>Featured on popular radio directory</p>
+                <a href="https://theonestopradio.com/radio/zw-263-hit-radio" class="stream-button" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Visit
+                </a>
+            </div>
+            
+            <!-- Radio-UK -->
+            <div class="stream-card">
+                <div class="stream-icon">
+                    <i class="fas fa-flag-uk"></i>
+                </div>
+                <h3>Radio-UK</h3>
+                <p>UK radio directory listing</p>
+                <a href="https://www.radio-uk.co.uk/263-hit-radio" class="stream-button" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Visit
+                </a>
+            </div>
+            
+            <!-- Radioline -->
+            <div class="stream-card">
+                <div class="stream-icon">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <h3>Radioline</h3>
+                <p>International radio platform</p>
+                <a href="https://www.radioline.co/en/radios/263_hit_radio" class="stream-button" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Visit
+                </a>
+            </div>
+            
+            <!-- LiveOnlineRadio -->
+            <div class="stream-card">
+                <div class="stream-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3>LiveOnlineRadio</h3>
+                <p>Global radio directory</p>
+                <a href="https://liveonlineradio.net/es/263-hit-radio" class="stream-button" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Visit
+                </a>
+            </div>
+            
+            <!-- LiveRadio.ie -->
+            <div class="stream-card">
+                <div class="stream-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h3>LiveRadio.ie</h3>
+                <p>Irish radio directory</p>
+                <a href="https://www.liveradio.ie/stations/263-hit-radio" class="stream-button" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Visit
+                </a>
+            </div>
+            
+            <!-- OnlineRadioBox -->
+            <div class="stream-card">
+                <div class="stream-icon">
+                    <i class="fas fa-radio"></i>
+                </div>
+                <h3>OnlineRadioBox</h3>
+                <p>Popular streaming platform</p>
+                <a href="https://onlineradiobox.com/uk/263hit/" class="stream-button" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Visit
+                </a>
+            </div>
+            
+            <!-- RadioSpinner -->
+            <div class="stream-card">
+                <div class="stream-icon">
+                    <i class="fas fa-spinner"></i>
+                </div>
+                <h3>RadioSpinner</h3>
+                <p>Global radio discovery</p>
+                <a href="https://radiospinner.com/gb/263-hit-radio-49663/" class="stream-button" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Visit
+                </a>
+            </div>
+        </div>
+    </div>
+<div class="glass-card">
+    <h2 class="section-title">📱 Mobile Apps</h2>
+    <div class="app-grid">
+        <div class="app-card">
+            <div class="app-text-logo">263 hit Radio Radio</div>
+            <h3>263 hit Radio Radio</h3>
+            <div class="app-badges">
+                <span class="coming-soon-badge">Coming Soon to Google Play</span>
+            </div>
+        </div>
+        
+        <div class="app-card">
+            <div class="app-text-logo">263 hit Radio Radio</div>
+            <h3>263 hit Radio Radio</h3>
+            <div class="app-badges">
+                <span class="coming-soon-badge">Coming Soon to Google Play</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="glass-card">
+    <h2 class="section-title">❓ Need Help?</h2>
+    <div class="help-content">
+        <div class="help-text">
+            <h3>Streaming Troubleshooting</h3>
+            <ul>
+                <li><strong>Buffering?</strong> Try a different stream mirror</li>
+                <li><strong>Connection issues?</strong> Check our <a href="#">Network Status</a></li>
+                <li><strong>Mobile problems?</strong> Use our apps for better stability</li>
+            </ul>
+            <a href="#" class="cta" onclick="navigateToPage('contact'); return false;">View Profiles</a>
+        </div>
+        <div class="help-image">
+            <img src="images/support.jpg" alt="Music support illustration">
+        </div>
+    </div>
+</div>
+
+    <style>
+
+        /* Streaming Hero Image (Landscape) */
+.hero-landscape {
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
+}
+
+/* Support Image (Boxed Portrait) */
+.support-portrait {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    aspect-ratio: 4/5;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 8px solid white;
+    transition: transform 0.3s ease;
+}
+
+.support-portrait:hover {
+    transform: scale(1.03);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-landscape {
+        max-height: 40vh;
+    }
+    
+    .support-portrait {
+        max-width: 280px;
+        margin: 20px auto;
+    }
+    
+    .help-content {
+        flex-direction: column;
+    }
+}
+
+/* Ensure proper layout for help section */
+.help-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.help-image {
+    flex-shrink: 0;
+}
+        /* Stream Hero */
+        .stream-hero {
+            position: relative;
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        
+        .stream-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 30px 20px;
+            color: white;
+        }
+        
+        .hero-overlay h1 {
+            font-size: 2rem;
+            margin: 0 0 10px 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero-overlay p {
+            margin: 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Stream Grid */
+        .stream-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .stream-card {
+            background: rgba(0,0,0,0.3);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid rgba(227,25,55,0.3);
+        }
+        
+        .stream-card.highlight {
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 15px rgba(227,25,55,0.3);
+        }
+        
+        .stream-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .stream-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .stream-card h3 {
+            margin: 0 0 10px 0;
+            color: white;
+        }
+        
+        .stream-card p {
+            color: #ccc;
+            margin: 0 0 20px 0;
+            font-size: 0.9rem;
+        }
+        
+        .stream-button {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .stream-button:hover {
+            background: #d81b3a;
+            transform: scale(1.05);
+        }
+        
+        /* App Grid */
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .app-card {
+            background: rgba(0,0,0,0.3);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .app-logo {
+            height: 60px;
+            margin-bottom: 15px;
+            object-fit: contain;
+        }
+        
+        .app-card h3 {
+            margin: 0 0 15px 0;
+            color: white;
+        }
+        
+        .app-badges {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .app-badges img {
+            height: 40px;
+        }
+        
+        /* Help Section */
+        .help-content {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .help-text {
+            flex: 1;
+        }
+        
+        .help-text ul {
+            padding-left: 20px;
+        }
+        
+        .help-text li {
+            margin-bottom: 10px;
+        }
+        
+        .help-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            max-height: 250px;
+        }
+        
+        .help-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        @media (max-width: 768px) {
+            .help-content {
+                flex-direction: column;
             }
-
-            document.getElementById("days").textContent = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-            document.getElementById("hours").textContent = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-            document.getElementById("minutes").textContent = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-            document.getElementById("seconds").textContent = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
-        }, 1000);
-
-        // Load fan testimonials
-        const fanTestimonials = [
-            {
-                name: "Batsi Mahara",
-                image: "fan-photos/fan1 (1).jpeg",
-                quote: "Mafaro Ngaawande ne 263 hit Radio Radio!"
-            },
-            {
-                name: "Fatima",
-                image: "fan-photos/fan1 (2).jpeg",
-                quote: "263 hit Radio RadioIs the place to be Good Music so much love"
-            },
-            {
-                name: "Manya",
-                image: "fan-photos/fan1 (3).jpeg",
-                quote: "I'm loving with dj Auto on radio 263,radio Nakaa,radio bunandi. The hosts are knowledgeable and entertaining..."
+            
+            .help-image {
+                max-height: 200px;
             }
-            // Add more testimonials as needed
-        ];
+        }
+    </style>
+</section>
 
-        function loadFanTestimonials() {
-            if (!fansGrid) return;
+ <!-- Fanbase Page -->
+<section id="fanbase-page" class="page-section">
+    <div class="fanbase-section">
+        <h2 class="section-title">🎉 Meet Our Fanbase</h2>
+        <p>Our amazing community of music lovers from around the world!</p>
+    </div>
+    
+    <!-- Fan Gallery Section -->
+    <div class="glass-card">
+        <h2 class="section-title">📸 Fan Photo Gallery</h2>
+        <p>Check out photos submitted by our amazing fans!</p>
+        
+        <div class="fan-gallery">
+            <!-- Fan 1 -->
+            <div class="fan-photo">
+                <img src="fan-photos/fan1 (1).jpeg" alt="Fan enjoying 263 hit Radio Radio">
+            </div>
             
-            fansGrid.innerHTML = '';
+            <!-- Fan 2 -->
+            <div class="fan-photo">
+                <img src="fan-photos/fan1 (2).jpeg" alt="Fan enjoying 263 hit Radio Radio">
+            </div>
             
-            fanTestimonials.forEach(fan => {
-                const fanCard = document.createElement('div');
-                fanCard.className = 'fan-card-mobile';
-                fanCard.innerHTML = `
-                    <img src="${fan.image}" alt="${fan.name}">
-                    <div class="fan-info-mobile">
-                        <h3>${fan.name}</h3>
-                        <p>${fan.quote}</p>
+            <!-- Fan 3 -->
+            <div class="fan-photo">
+                <img src="fan-photos/fan1 (3).jpeg" alt="Fan enjoying 263 hit Radio Radio">
+            </div>
+            
+            <!-- Fan 4 -->
+            <div class="fan-photo">
+                <img src="fan-photos/fan1 (4).jpeg" alt="Fan enjoying 263 hit Radio Radio">
+            </div>
+            
+            <!-- Fan 5 -->
+            <div class="fan-photo">
+                <img src="fan-photos/fan1 (5).jpeg" alt="Fan enjoying 263 hit Radio Radio">
+            </div>
+            
+            <!-- Fan 6 -->
+            <div class="fan-photo">
+                <img src="fan-photos/fan1 (6).jpeg" alt="Fan enjoying 263 hit Radio Radio">
+            </div>
+            
+            <!-- Fan 7 -->
+            <div class="fan-photo">
+                <img src="fan-photos/fan1 (7).jpeg" alt="Fan enjoying 263 hit Radio Radio">
+            </div>
+            
+            <!-- Fan 8 -->
+            <div class="fan-photo">
+                <img src="fan-photos/fan1 (8).jpeg" alt="Fan enjoying 263 hit Radio Radio">
+            </div>
+            
+            <!-- Fan 9 -->
+            <div class="fan-photo">
+                <img src="fan-photos/fan1 (9).jpeg" alt="Fan enjoying 263 hit Radio Radio">
+            </div>
+            
+            <!-- Fan 10 -->
+            <div class="fan-photo">
+                <img src="fan-photos/fan1 (10).jpeg" alt="Fan enjoying 263 hit Radio Radio">
+            </div>
+            
+            <!-- Fan 11 -->
+            <div class="fan-photo">
+                <img src="fan-photos/fan1 (11).jpeg" alt="Fan enjoying 263 hit Radio Radio">
+            </div>
+            
+            <!-- Fan 12 -->
+            <div class="fan-photo">
+                <img src="fan-photos/fan1 (12).jpeg" alt="Fan enjoying 263 hit Radio Radio">
+            </div>
+            <!-- Fan 13 -->
+            <div class="fan-photo">
+                <img src="fan-photos/fan1 (13).jpeg" alt="Fan enjoying 263 hit Radio Radio">
+            </div>
+
+              <div class="fan-photo">
+                <img src="fan-photos/fan1 (15).jpeg" alt="Fan enjoying One Love Radio">
+            </div>
+
+              <div class="fan-photo">
+                <img src="fan-photos/fan1 (16).jpeg" alt="Fan enjoying One Love Radio">
+            </div>
+
+
+    <div class="fan-photo">
+                <img src="fan-photos/fan1 (14).jpeg" alt="Fan enjoying One Love Radio">
+            </div>
+
+            <div class="fan-photo">
+                <img src="fan-photos/fan1 (16).jpeg" alt="Fan enjoying One Love Radio">
+            </div>
+            <!-- Fan 13 -->
+
+
+            <div class="fan-photo">
+                <img src="fan-photos/fan1 (17).jpeg" alt="Fan enjoying One Love Radio">
+            </div>
+            <!-- Fan 14 -->
+            
+        </div>
+    </div>
+
+    <div class="submit-photo" id="submitPhoto">
+        <h3><i class="fas fa-camera"></i> Submit Your Photo</h3>
+        <p>Click here to share your photos with the 263 hit Radio community</p>
+    </div>
+
+<div class="advertising-benefits">
+    <!-- Card 1: Brand Exposure -->
+    <div class="benefit-card">
+        <div class="benefit-icon">📢</div>
+        <h3>Massive Brand Exposure</h3>
+        <p>Reach thousands of listeners daily with ads during prime-time shows, social media shoutouts, and website features.</p>
+        <a href="#" class="cta-button" onclick="navigateToPage('contact'); return false;">Advertise Now</a>
+    </div>
+
+    <!-- Card 2: Targeted Ads -->
+    <div class="benefit-card">
+        <div class="benefit-icon">🎯</div>
+        <h3>Hyper-Targeted Ads</h3>
+        <p>Promote your business to the right audience—whether it’s music lovers, young professionals, or local communities.</p>
+        <a href="#" class="cta-button" onclick="navigateToPage('contact'); return false;">Get Started</a>
+    </div>
+
+    <!-- Card 3: Sponsorships -->
+    <div class="benefit-card">
+        <div class="benefit-icon">🤝</div>
+        <h3>Show Sponsorships</h3>
+        <p>Sponsor a popular radio show or segment and get your brand mentioned by top DJs regularly.</p>
+        <a href="#" class="cta-button" onclick="navigateToPage('contact'); return false;">Become a Sponsor</a>
+    </div>
+
+    <!-- Card 4: Social Media Promos -->
+    <div class="benefit-card">
+        <div class="benefit-icon">📱</div>
+        <h3>Social Media Bundles</h3>
+        <p>Boost your reach with combo deals—radio ads + Instagram/Facebook/TikTok promotions.</p>
+        <a href="#" class="cta-button" onclick="navigateToPage('contact'); return false;">Learn More</a>
+    </div>
+</div>
+
+
+<script>
+    function navigateToPage(page) {
+        // Replace with your actual navigation logic
+        window.location.href = `#${page}`; // Scrolls to contact section
+        // OR: window.location.href = `/${page}.html`; // Loads a new page
+    }
+</script>
+    <div class="join-fanbase-section">
+        <h3>🤝 Want to Join Our Fanbase?</h3>
+        <p>Become part of our vibrant community and stay updated with the latest hits and events.</p>
+        <a href="https://chat.whatsapp.com/KnwSpDRRsRG3JqqCPfanB1" class="join-button" target="_blank" rel="noopener">
+            Join the Fanbase
+        </a>
+    </div>
+
+    <style>
+
+ .advertising-benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 2rem;
+    background: #000; /* Black background */
+}
+
+.benefit-card {
+    background: #1a1a1a; /* Dark gray cards for contrast */
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.2); /* Red glow effect */
+    text-align: center;
+    color: #fff; /* White text */
+    border: 1px solid #ff0000; /* Red border */
+    transition: transform 0.3s;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(255, 0, 0, 0.3); /* Hover glow */
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #ff0000; /* Red icons */
+}
+
+h3 {
+    color: #ff0000; /* Red headings */
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: #ff0000; /* Red button */
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    transition: background 0.3s;
+}
+
+.cta-button:hover {
+    background: #cc0000; /* Darker red on hover */
+}
+        .fan-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+            padding: 15px;
+        }
+        
+        .fan-photo {
+            position: relative;
+            aspect-ratio: 1/1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(227, 25, 55, 0.3);
+            border: 2px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .fan-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .fan-photo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(227, 25, 55, 0.4);
+        }
+        
+        .fan-photo:hover img {
+            transform: scale(1.1);
+        }
+        
+        .fan-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(227, 25, 55, 0.8), transparent);
+            color: white;
+            padding: 15px 10px 5px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .fan-gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .fan-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+        }
+    </style>
+</section>
+<!-- Meet The DJs Page -->
+<section id="djs-page" class="page-section">
+    <div class="glass-card">
+        <h2 class="section-title">🌟 Prime Time Crew</h2>
+        <div class="dj-grid">
+            <!-- DJ Jamza -->
+            <div class="dj-card">
+                <div class="dj-image-container">
+                    <img src="images/dj1.jpg" alt="DJ Jamza" class="dj-image">
+                </div>
+                <div class="dj-info">
+                    <h3>DJ Jamza</h3>
+                    <div class="dj-schedule">
+                        <i class="fas fa-calendar-day"></i> Monday 19:00–22:00 CAT
                     </div>
-                `;
-                fansGrid.appendChild(fanCard);
-            });
+                    <p class="dj-bio">The king of Zimdancehall with 10+ years experience. Known for his explosive mixes and exclusive artist interviews.</p>
+                    <div class="show-name">
+                        <i class="fas fa-microphone"></i> "Massive Monday vibes"
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DJ Bamdiki Munya wekwaThela -->
+            <div class="dj-card">
+                <div class="dj-image-container">
+                    <img src="images/dj2.jpg" alt="DJ Bamdiki Munya wekwaThela" class="dj-image">
+                </div>
+                <div class="dj-info">
+                    <h3>DJ Bamdiki Munya wekwaThela</h3>
+                    <div class="dj-schedule">
+                        <i class="fas fa-calendar-day"></i> Tuesday 19:00–22:00 & Friday 19:00–23:00 CAT
+                    </div>
+                    <p class="dj-bio">The people's DJ specializing in urban grooves and classic Zimbabwean hits from the 90s to today.</p>
+                    <div class="show-name">
+                        <i class="fas fa-microphone"></i> "263 hit Radio RadioConnection & The Weekend Crossover Show"
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DJ Steve Ka Sithole -->
+            <div class="dj-card">
+                <div class="dj-image-container">
+                    <img src="images/dj3.jpg" alt="DJ Steve Ka Sithole" class="dj-image">
+                </div>
+                <div class="dj-info">
+                    <h3>DJ Steve Ka Sithole</h3>
+                    <div class="dj-schedule">
+                        <i class="fas fa-calendar-day"></i> Wednesday 19:00–22:00 & Thursday 19:00–22:00 CAT
+                    </div>
+                    <p class="dj-bio">Afrofusion specialist blending contemporary African beats with global sounds.</p>
+                    <div class="show-name">
+                        <i class="fas fa-microphone"></i> "Nhubu Diaries & Old School Jams"
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="glass-card">
+        <h2 class="section-title">🎶 Weekend Warriors</h2>
+        <div class="dj-grid">
+            <!-- DJ Oliver Chigariro -->
+            <div class="dj-card">
+                <div class="dj-image-container">
+                    <img src="images/dj4.jpg" alt="DJ Oliver Chigariro" class="dj-image">
+                </div>
+                <div class="dj-info">
+                    <h3>Dr. Oliver Chigariro</h3>
+                    <div class="dj-schedule">
+                        <i class="fas fa-calendar-day"></i> Sunday 09:00–12:00 CAT
+                    </div>
+                    <p class="dj-bio">Specialist in soulful and inspirational talk & love music. Bringing your comfort, healing and warmth to start your week.</p>
+                    <div class="show-name">
+                        <i class="fas fa-microphone"></i> "Lovers Lounge"
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DJ Warren -->
+            <div class="dj-card">
+                <div class="dj-image-container">
+                    <img src="images/dj5.jpg" alt="DJ Warren" class="dj-image">
+                </div>
+                <div class="dj-info">
+                    <h3>DJ Warren</h3>
+                    <div class="dj-schedule">
+                        <i class="fas fa-calendar-day"></i> Monday 22:00–01:00 & Saturday 19:00–23:00 CAT
+                    </div>
+                    <p class="dj-bio">The young gun bringing fresh energy and the latest chart-toppers to your weekend. Now also bringing mellow vibes to start your week right.</p>
+                    <div class="show-name">
+                        <i class="fas fa-microphone"></i> "Monday Mellow Madness & Sounds on Saturday"
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DJ Lassi Jamu -->
+            <div class="dj-card">
+                <div class="dj-image-container">
+                    <img src="images/dj7s.jpg" alt="DJ Lassi Jamu" class="dj-image">
+                </div>
+                <div class="dj-info">
+                    <h3>DJ Lassi Jamu</h3>
+                    <div class="dj-schedule">
+                        <i class="fas fa-calendar-day"></i> Wednesday 22:00–01:00 & Sunday 19:00–22:00 CAT
+                    </div>
+                    <p class="dj-bio">International grooves specialist bringing you the best global sounds. Master of world music fusion and cross-cultural beats.</p>
+                    <div class="show-name">
+                        <i class="fas fa-microphone"></i> "Global Grooves & Rhythm Connect"
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DJ Thembie okaMpangazitha -->
+            <div class="dj-card">
+                <div class="dj-image-container">
+                    <img src="images/dj8.jpg" alt="DJ Thembie okaMpangazitha" class="dj-image">
+                </div>
+                <div class="dj-info">
+                    <h3>DJ Thembie okaMpangazitha</h3>
+                    <div class="dj-schedule">
+                        <i class="fas fa-calendar-day"></i> Saturday 16:00–19:00 & Sunday 16:00–19:00 CAT
+                    </div>
+                    <p class="dj-bio">Bringing spiritual vibes and traditional sounds. Master of gospel music and cultural beats that uplift the soul.</p>
+                    <div class="show-name">
+                        <i class="fas fa-microphone"></i> "Mutserendende we Ngoma & Gospel Gold"
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Auto DJ -->
+            <div class="dj-card">
+                <div class="dj-image-container">
+                    <img src="images/dj6.jpg" alt="Auto DJ" class="dj-image">
+                </div>
+                <div class="dj-info">
+                    <h3>Music Interlude</h3>
+                    <div class="dj-schedule">
+                        <i class="fas fa-calendar-day"></i> Weekday Mornings
+                    </div>
+                    <p class="dj-bio">Our intelligent playlist system keeps the music flowing 24/7 with perfect mixes.</p>
+                    <div class="show-name">
+                        <i class="fas fa-microphone"></i> "Non-Stop Hits"
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="glass-card">
+    <h2 class="section-title">🎤 Want To Join Our Team?</h2>
+    <div class="join-team">
+        <div class="join-text">
+            <h3>DJ Applications Open!</h3>
+            <p>We're always looking for talented DJs and presenters to join the 263 hit Radio Radio family. If you've got skills on the decks and a passion for Zimbabwean music, we want to hear from you!</p>
+            <ul>
+                <li>Knowledge of Zimbabwean music genres</li>
+                <li>Ability to engage listeners</li>
+                <li>Professional attitude</li>
+            </ul>
+        <a href="#" class="cta" onclick="navigateToPage('contact'); return false;">View Profiles</a>
+        </div>
+        <div class="join-image">
+            <img src="images/djappli.jpg" alt="DJ Booth">
+            <div class="image-support">
+                <i class="fas fa-headphones"></i>
+                <p>Studio Support Available</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .join-team {
+        display: flex;
+        gap: 30px;
+        align-items: flex-start;
+    }
+    
+    .join-text {
+        flex: 1;
+        padding-right: 20px;
+    }
+    
+    .join-image {
+        width: 250px;
+        min-width: 250px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 2px solid var(--primary);
+        box-shadow: 0 5px 15px rgba(227, 25, 55, 0.2);
+        position: relative;
+    }
+    
+    .join-image img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+    
+    .image-support {
+        background: rgba(0, 0, 0, 0.7);
+        padding: 12px;
+        text-align: center;
+        border-top: 2px solid var(--primary);
+    }
+    
+    .image-support i {
+        color: var(--primary);
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+    
+    .image-support p {
+        color: white;
+        margin: 0;
+        font-size: 0.9rem;
+        font-family: 'Orbitron', sans-serif;
+    }
+    
+    .apply-button {
+        display: inline-block;
+        background: var(--primary);
+        color: white;
+        padding: 10px 25px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 15px;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+        font-family: 'Orbitron', sans-serif;
+    }
+    
+    .apply-button:hover {
+        background: var(--accent-light);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(227, 25, 55, 0.4);
+    }
+    
+    @media (max-width: 768px) {
+        .join-team {
+            flex-direction: column;
+        }
+        
+        .join-image {
+            width: 100%;
+            min-width: auto;
+        }
+        
+        .join-text {
+            padding-right: 0;
+        }
+    }
+</style>
+
+</section>
+        <!-- Contact Page -->
+        <section id="contact-page" class="page-section">
+
+            <div class="glass-card">
+            <h2 class="section-title">📬 Contact Us</h2>
+            <div class="contact-options">
+                <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3>WhatsApp Community</h3>
+                <p>Join our active community of listeners, get exclusive updates, and chat with the DJs</p>
+                <a href="https://chat.whatsapp.com/KnwSpDRRsRG3JqqCPfanB1" class="contact-btn" target="_blank" rel="noopener">Join Community</a>
+                </div>
+
+                <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h3>Chat With Us</h3>
+                <p>Have questions or want to request a song? Our team is ready to chat with you</p>
+                <a href="https://wa.me/447850930017?text=Hi%20One%20Love%20Radio!%20I%20would%20like%20to%20chat%20with%20the%20team." class="contact-btn" target="_blank" rel="noopener">Start Chat</a>
+                </div>
+
+                <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email Us</h3>
+                <p>Prefer email? Send us your thoughts, feedback, or business inquiries</p>
+                <a href="mailto:263hitradio@gmail.com" class="contact-btn">Send Email</a>
+                </div>
+            </div>
+            </div>
+
+            <div class="glass-card">
+                <h2 class="section-title">🎤 Join Our DJ Team</h2>
+                <p style="text-align: center; margin-bottom: 25px;">Passionate about music? Apply to become a DJ on 263 hit Radio Radio Radio!</p>
+                <form class="dj-form" id="djApplicationForm" autocomplete="off">
+                    <div style="display: grid; gap: 20px; margin-bottom: 20px;">
+                        <div>
+                            <label for="djName">Full Name</label>
+                            <input type="text" id="djName" name="djName" placeholder="Enter your full name" required>
+                        </div>
+                        <div>
+                            <label for="djEmail">Email Address</label>
+                            <input type="email" id="djEmail" name="djEmail" placeholder="Enter your email" required>
+                        </div>
+                        <div>
+                            <label for="djSocials">Social Media Links</label>
+                            <textarea id="djSocials" name="djSocials" placeholder="Instagram, Facebook, Mixcloud, etc."></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="cta" style="width: 100%;">Submit Application</button>
+                </form>
+            </div>
+            </section>
+
+<!-- Past Events Page -->
+<section id="past-events-page" class="page-section">
+    <div class="glass-card">
+        <h2 class="section-title">🎉 Past Events</h2>
+        <p style="text-align: center; margin-bottom: 30px;">Relive the amazing moments from our previous events!</p>
+        
+        <!-- Band Fusion Event -->
+        <div class="past-event-card">
+            <div class="event-banner">
+                <img src="images/fusionband.jpg" alt="Band Fusion Event" style="width: 100%; height: 400px; object-fit: cover; border-radius: 15px; border: 3px solid var(--primary);">
+            </div>
+            <div class="event-details" style="margin-top: 20px;">
+                <h3 style="color: var(--primary); font-size: 2rem; margin-bottom: 15px;">Band Fusion</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #e0e0e0;">
+                    An incredible night of live music featuring talented bands from across Zimbabwe. The energy was electric as musicians came together to create unforgettable performances that had the crowd on their feet all night long. From rock to jazz, afrobeat to traditional Zimbabwean sounds, Band Fusion showcased the diversity and richness of our local music scene.
+                </p>
+                <div style="margin-top: 15px; padding: 15px; background: rgba(255, 0, 38, 0.1); border-left: 4px solid var(--primary); border-radius: 8px;">
+                    <p style="margin: 0; color: #ccc;"><strong>Date:</strong> August 2025</p>
+                    <p style="margin: 5px 0 0 0; color: #ccc;"><strong>Venue:</strong> 263 hit Radio Radio Main Stage</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Meet & Mingle Event -->
+        <div class="past-event-card" style="margin-top: 40px;">
+            <div class="event-banner">
+                <img src="images/263hitradioevent.jpg" alt="Meet & Mingle Event" style="width: 100%; height: 400px; object-fit: cover; border-radius: 15px; border: 3px solid var(--primary);">
+            </div>
+            <div class="event-details" style="margin-top: 20px;">
+                <h3 style="color: var(--primary); font-size: 2rem; margin-bottom: 15px;">Meet & Mingle</h3>
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #e0e0e0;">
+                    Our fans came together for an amazing afternoon of music, food, and connection! Meet & Mingle was all about bringing the 263 hit Radio Radio community together in person. Listeners got to meet their favorite DJs, take photos, enjoy live performances, and connect with fellow music lovers. The atmosphere was filled with laughter, great vibes, and the spirit of unity that defines our radio family.
+                </p>
+                <div style="margin-top: 15px; padding: 15px; background: rgba(255, 0, 38, 0.1); border-left: 4px solid var(--primary); border-radius: 8px;">
+                    <p style="margin: 0; color: #ccc;"><strong>Date:</strong> September 2025</p>
+                    <p style="margin: 5px 0 0 0; color: #ccc;"><strong>Venue:</strong> Community Center</p>
+                </div>
+                <div style="margin-top: 20px; text-align: center;">
+                    <a href="#" class="cta" onclick="showPage('photos'); return false;">View Event Photos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .past-event-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 0, 38, 0.3);
+            transition: all 0.3s;
         }
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            loadFanTestimonials();
-            
-            // Set initial volume icon
-            const volumeIcon = volumeBtn.querySelector('i');
-            if (player.volume == 0) {
-                volumeIcon.className = 'fas fa-volume-mute';
-            } else if (player.volume < 0.5) {
-                volumeIcon.className = 'fas fa-volume-down';
-            } else {
-                volumeIcon.className = 'fas fa-volume-up';
-            }
-        });
+        .past-event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 0, 38, 0.4);
+        }
 
-        // Handle audio errors
-        player.addEventListener('error', (e) => {
-            console.error('Audio error:', e);
-            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        @media (max-width: 768px) {
+            .event-banner img {
+                height: 250px !important;
+            }
+        }
+    </style>
+</section>
+
+<!-- Meet & Mingle Photos Page -->
+<section id="photos-page" class="page-section">
+    <div class="glass-card">
+        <h2 class="section-title">📸 Meet & Mingle Photos</h2>
+        <p style="text-align: center; margin-bottom: 30px;">Check out the amazing moments captured at our Meet & Mingle event!</p>
+        
+        <div class="photo-gallery">
+            <div class="photo-item"><img src="images/ADDTEXT1.jpg" alt="Meet & Mingle Photo 1"></div>
+            <div class="photo-item"><img src="images/ADDTEXT2.jpg" alt="Meet & Mingle Photo 2"></div>
+            <div class="photo-item"><img src="images/ADDTEXT3.jpg" alt="Meet & Mingle Photo 3"></div>
+            <div class="photo-item"><img src="images/ADDTEXT4.jpg" alt="Meet & Mingle Photo 4"></div>
+            <div class="photo-item"><img src="images/ADDTEXT5.jpg" alt="Meet & Mingle Photo 5"></div>
+            <div class="photo-item"><img src="images/ADDTEXT6.jpg" alt="Meet & Mingle Photo 6"></div>
+            <div class="photo-item"><img src="images/ADDTEXT7.jpg" alt="Meet & Mingle Photo 7"></div>
+            <div class="photo-item"><img src="images/ADDTEXT8.jpg" alt="Meet & Mingle Photo 8"></div>
+            <div class="photo-item"><img src="images/ADDTEXT9.jpg" alt="Meet & Mingle Photo 9"></div>
+            <div class="photo-item"><img src="images/ADDTEXT10.jpg" alt="Meet & Mingle Photo 10"></div>
+            <div class="photo-item"><img src="images/ADDTEXT11.jpg" alt="Meet & Mingle Photo 11"></div>
+            <div class="photo-item"><img src="images/ADDTEXT12.jpg" alt="Meet & Mingle Photo 12"></div>
+            <div class="photo-item"><img src="images/ADDTEXT13.jpg" alt="Meet & Mingle Photo 13"></div>
+            <div class="photo-item"><img src="images/ADDTEXT14.jpg" alt="Meet & Mingle Photo 14"></div>
+            <div class="photo-item"><img src="images/ADDTEXT15.jpg" alt="Meet & Mingle Photo 15"></div>
+            <div class="photo-item"><img src="images/ADDTEXT16.jpg" alt="Meet & Mingle Photo 16"></div>
+            <div class="photo-item"><img src="images/ADDTEXT17.jpg" alt="Meet & Mingle Photo 17"></div>
+            <div class="photo-item"><img src="images/ADDTEXT18.jpg" alt="Meet & Mingle Photo 18"></div>
+            <div class="photo-item"><img src="images/ADDTEXT19.jpg" alt="Meet & Mingle Photo 19"></div>
+            <div class="photo-item"><img src="images/ADDTEXT20.jpg" alt="Meet & Mingle Photo 20"></div>
+            <div class="photo-item"><img src="images/ADDTEXT21.jpg" alt="Meet & Mingle Photo 21"></div>
+            <div class="photo-item"><img src="images/ADDTEXT22.jpg" alt="Meet & Mingle Photo 22"></div>
+            <div class="photo-item"><img src="images/ADDTEXT23.jpg" alt="Meet & Mingle Photo 23"></div>
+            <div class="photo-item"><img src="images/ADDTEXT24.jpg" alt="Meet & Mingle Photo 24"></div>
+            <div class="photo-item"><img src="images/ADDTEXT25.jpg" alt="Meet & Mingle Photo 25"></div>
+            <div class="photo-item"><img src="images/ADDTEXT26.jpg" alt="Meet & Mingle Photo 26"></div>
+            <div class="photo-item"><img src="images/ADDTEXT27.jpg" alt="Meet & Mingle Photo 27"></div>
+            <div class="photo-item"><img src="images/ADDTEXT28.jpg" alt="Meet & Mingle Photo 28"></div>
+            <div class="photo-item"><img src="images/ADDTEXT29.jpg" alt="Meet & Mingle Photo 29"></div>
+            <div class="photo-item"><img src="images/ADDTEXT30.jpg" alt="Meet & Mingle Photo 30"></div>
+            <div class="photo-item"><img src="images/ADDTEXT31.jpg" alt="Meet & Mingle Photo 31"></div>
+            <div class="photo-item"><img src="images/ADDTEXT32.jpg" alt="Meet & Mingle Photo 32"></div>
+            <div class="photo-item"><img src="images/ADDTEXT33.jpg" alt="Meet & Mingle Photo 33"></div>
+            <div class="photo-item"><img src="images/ADDTEXT34.jpg" alt="Meet & Mingle Photo 34"></div>
+            <div class="photo-item"><img src="images/ADDTEXT35.jpg" alt="Meet & Mingle Photo 35"></div>
+            <div class="photo-item"><img src="images/ADDTEXT36.jpg" alt="Meet & Mingle Photo 36"></div>
+            <div class="photo-item"><img src="images/ADDTEXT37.jpg" alt="Meet & Mingle Photo 37"></div>
+            <div class="photo-item"><img src="images/ADDTEXT38.jpg" alt="Meet & Mingle Photo 38"></div>
+            <div class="photo-item"><img src="images/ADDTEXT39.jpg" alt="Meet & Mingle Photo 39"></div>
+            <div class="photo-item"><img src="images/ADDTEXT40.jpg" alt="Meet & Mingle Photo 40"></div>
+            <div class="photo-item"><img src="images/ADDTEXT41.jpg" alt="Meet & Mingle Photo 41"></div>
+            <div class="photo-item"><img src="images/ADDTEXT42.jpg" alt="Meet & Mingle Photo 42"></div>
+            <div class="photo-item"><img src="images/ADDTEXT43.jpg" alt="Meet & Mingle Photo 43"></div>
+            <div class="photo-item"><img src="images/ADDTEXT44.jpg" alt="Meet & Mingle Photo 44"></div>
+            <div class="photo-item"><img src="images/ADDTEXT45.jpg" alt="Meet & Mingle Photo 45"></div>
+            <div class="photo-item"><img src="images/ADDTEXT46.jpg" alt="Meet & Mingle Photo 46"></div>
+            <div class="photo-item"><img src="images/ADDTEXT47.jpg" alt="Meet & Mingle Photo 47"></div>
+            <div class="photo-item"><img src="images/ADDTEXT48.jpg" alt="Meet & Mingle Photo 48"></div>
+            <div class="photo-item"><img src="images/ADDTEXT49.jpg" alt="Meet & Mingle Photo 49"></div>
+            <div class="photo-item"><img src="images/ADDTEXT50.jpg" alt="Meet & Mingle Photo 50"></div>
+            <div class="photo-item"><img src="images/ADDTEXT51.jpg" alt="Meet & Mingle Photo 51"></div>
+            <div class="photo-item"><img src="images/ADDTEXT52.jpg" alt="Meet & Mingle Photo 52"></div>
+            <div class="photo-item"><img src="images/ADDTEXT53.jpg" alt="Meet & Mingle Photo 53"></div>
+            <div class="photo-item"><img src="images/ADDTEXT54.jpg" alt="Meet & Mingle Photo 54"></div>
+            <div class="photo-item"><img src="images/ADDTEXT55.jpg" alt="Meet & Mingle Photo 55"></div>
+            <div class="photo-item"><img src="images/ADDTEXT56.jpg" alt="Meet & Mingle Photo 56"></div>
+            <div class="photo-item"><img src="images/ADDTEXT57.jpg" alt="Meet & Mingle Photo 57"></div>
+            <div class="photo-item"><img src="images/ADDTEXT58.jpg" alt="Meet & Mingle Photo 58"></div>
+            <div class="photo-item"><img src="images/ADDTEXT59.jpg" alt="Meet & Mingle Photo 59"></div>
+            <div class="photo-item"><img src="images/ADDTEXT60.jpg" alt="Meet & Mingle Photo 60"></div>
+            <div class="photo-item"><img src="images/ADDTEXT61.jpg" alt="Meet & Mingle Photo 61"></div>
+            <div class="photo-item"><img src="images/ADDTEXT62.jpg" alt="Meet & Mingle Photo 62"></div>
+            <div class="photo-item"><img src="images/ADDTEXT63.jpg" alt="Meet & Mingle Photo 63"></div>
+            <div class="photo-item"><img src="images/ADDTEXT64.jpg" alt="Meet & Mingle Photo 64"></div>
+            <div class="photo-item"><img src="images/ADDTEXT65.jpg" alt="Meet & Mingle Photo 65"></div>
+            <div class="photo-item"><img src="images/ADDTEXT66.jpg" alt="Meet & Mingle Photo 66"></div>
+            <div class="photo-item"><img src="images/ADDTEXT67.jpg" alt="Meet & Mingle Photo 67"></div>
+            <div class="photo-item"><img src="images/ADDTEXT68.jpg" alt="Meet & Mingle Photo 68"></div>
+            <div class="photo-item"><img src="images/ADDTEXT69.jpg" alt="Meet & Mingle Photo 69"></div>
+            <div class="photo-item"><img src="images/ADDTEXT70.jpg" alt="Meet & Mingle Photo 70"></div>
+            <div class="photo-item"><img src="images/ADDTEXT71.jpg" alt="Meet & Mingle Photo 71"></div>
+            <div class="photo-item"><img src="images/ADDTEXT72.jpg" alt="Meet & Mingle Photo 72"></div>
+            <div class="photo-item"><img src="images/ADDTEXT73.jpg" alt="Meet & Mingle Photo 73"></div>
+            <div class="photo-item"><img src="images/ADDTEXT74.jpg" alt="Meet & Mingle Photo 74"></div>
+            <div class="photo-item"><img src="images/ADDTEXT75.jpg" alt="Meet & Mingle Photo 75"></div>
+            <div class="photo-item"><img src="images/ADDTEXT76.jpg" alt="Meet & Mingle Photo 76"></div>
+            <div class="photo-item"><img src="images/ADDTEXT77.jpg" alt="Meet & Mingle Photo 77"></div>
+            <div class="photo-item"><img src="images/ADDTEXT78.jpg" alt="Meet & Mingle Photo 78"></div>
+            <div class="photo-item"><img src="images/ADDTEXT79.jpg" alt="Meet & Mingle Photo 79"></div>
+            <div class="photo-item"><img src="images/ADDTEXT80.jpg" alt="Meet & Mingle Photo 80"></div>
+            <div class="photo-item"><img src="images/ADDTEXT81.jpg" alt="Meet & Mingle Photo 81"></div>
+            <div class="photo-item"><img src="images/ADDTEXT82.jpg" alt="Meet & Mingle Photo 82"></div>
+            <div class="photo-item"><img src="images/ADDTEXT83.jpg" alt="Meet & Mingle Photo 83"></div>
+            <div class="photo-item"><img src="images/ADDTEXT84.jpg" alt="Meet & Mingle Photo 84"></div>
+            <div class="photo-item"><img src="images/ADDTEXT85.jpg" alt="Meet & Mingle Photo 85"></div>
+            <div class="photo-item"><img src="images/ADDTEXT86.jpg" alt="Meet & Mingle Photo 86"></div>
+            <div class="photo-item"><img src="images/ADDTEXT87.jpg" alt="Meet & Mingle Photo 87"></div>
+            <div class="photo-item"><img src="images/ADDTEXT88.jpg" alt="Meet & Mingle Photo 88"></div>
+            <div class="photo-item"><img src="images/ADDTEXT89.jpg" alt="Meet & Mingle Photo 89"></div>
+            <div class="photo-item"><img src="images/ADDTEXT90.jpg" alt="Meet & Mingle Photo 90"></div>
+            <div class="photo-item"><img src="images/ADDTEXT91.jpg" alt="Meet & Mingle Photo 91"></div>
+            <div class="photo-item"><img src="images/ADDTEXT92.jpg" alt="Meet & Mingle Photo 92"></div>
+            <div class="photo-item"><img src="images/ADDTEXT93.jpg" alt="Meet & Mingle Photo 93"></div>
+            <div class="photo-item"><img src="images/ADDTEXT94.jpg" alt="Meet & Mingle Photo 94"></div>
+            <div class="photo-item"><img src="images/ADDTEXT95.jpg" alt="Meet & Mingle Photo 95"></div>
+            <div class="photo-item"><img src="images/ADDTEXT96.jpg" alt="Meet & Mingle Photo 96"></div>
+            <div class="photo-item"><img src="images/ADDTEXT97.jpg" alt="Meet & Mingle Photo 97"></div>
+            <div class="photo-item"><img src="images/ADDTEXT98.jpg" alt="Meet & Mingle Photo 98"></div>
+            <div class="photo-item"><img src="images/ADDTEXT99.jpg" alt="Meet & Mingle Photo 99"></div>
+            <div class="photo-item"><img src="images/ADDTEXT100.jpg" alt="Meet & Mingle Photo 100"></div>
+            <div class="photo-item"><img src="images/ADDTEXT101.jpg" alt="Meet & Mingle Photo 101"></div>
+            <div class="photo-item"><img src="images/ADDTEXT102.jpg" alt="Meet & Mingle Photo 102"></div>
+            <div class="photo-item"><img src="images/ADDTEXT103.jpg" alt="Meet & Mingle Photo 103"></div>
+            <div class="photo-item"><img src="images/ADDTEXT104.jpg" alt="Meet & Mingle Photo 104"></div>
+            <div class="photo-item"><img src="images/ADDTEXT105.jpg" alt="Meet & Mingle Photo 105"></div>
+            <div class="photo-item"><img src="images/ADDTEXT106.jpg" alt="Meet & Mingle Photo 106"></div>
+            <div class="photo-item"><img src="images/ADDTEXT107.jpg" alt="Meet & Mingle Photo 107"></div>
+            <div class="photo-item"><img src="images/ADDTEXT108.jpg" alt="Meet & Mingle Photo 108"></div>
+            <div class="photo-item"><img src="images/ADDTEXT109.jpg" alt="Meet & Mingle Photo 109"></div>
+        </div>
+    </div>
+
+    <style>
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .photo-item {
+            position: relative;
+            aspect-ratio: 5/3;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(255, 0, 38, 0.3);
+            border: 2px solid var(--primary);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(255, 0, 38, 0.5);
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .photo-gallery {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .photo-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</section>
+
+ <!-- SHOP PAGE (NEW) -->
+        <section id="shop-page" class="page-section">
+            <div class="glass-card">
+                <h2 class="section-title">🛍️ 263 Hit Radio Shop</h2>
+                <p style="text-align: center; margin-bottom: 30px; color: #ccc;">Show your 263 love with our exclusive merchandise! Only the cups are customizable.</p>
+
+                <div class="product-grid">
+                    
+                    <!-- Product 1: Customizable Coffee Mug (See-Through Top) -->
+                    <div class="product-card" data-product-id="mug-see-through" data-name="263 Mug (See-Through Top)">
+                        <img class="product-image" src="https://via.placeholder.com/300x250.png?text=Mug+See-Through" alt="263 Coffee Mug with See-Through Top">
+                        <div class="product-info">
+                            <h3>263 Coffee Mug (See-Through Top)</h3>
+                            <p>The classic 263 Hit Radio mug. Features a unique see-through top. Customizable with your name!</p>
+                            <div class="customization-options">
+                                <label for="custom-name-mug1">Custom Name (Optional):</label>
+                                <input type="text" id="custom-name-mug1" placeholder="Enter name for customization">
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('mug-see-through', '263 Mug (See-Through Top)', document.getElementById('custom-name-mug1').value)">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 2: 263 OneLove Mug (Full Black) -->
+                    <div class="product-card" data-product-id="mug-onelove" data-name="263 OneLove Mug (Full Black)">
+                        <img class="product-image" src="https://via.placeholder.com/300x250.png?text=OneLove+Mug" alt="263 OneLove Mug Full Black">
+                        <div class="product-info">
+                            <h3>263 OneLove Mug (Full Black)</h3>
+                            <p>A sleek, full black mug featuring the 263 OneLove design. Customizable with your name.</p>
+                            <div class="customization-options">
+                                <label for="custom-name-mug2">Custom Name (Optional):</label>
+                                <input type="text" id="custom-name-mug2" placeholder="Enter name for customization">
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart('mug-onelove', '263 OneLove Mug (Full Black)', document.getElementById('custom-name-mug2').value)">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 3: 263 Hit Radio Cap -->
+                    <div class="product-card" data-product-id="cap" data-name="263 Hit Radio Cap">
+                        <img class="product-image" src="https://via.placeholder.com/300x250.png?text=263+Cap" alt="263 Hit Radio Cap">
+                        <div class="product-info">
+                            <h3>263 Hit Radio Cap</h3>
+                            <p>High-quality cap with the official 263 Hit Radio logo. Perfect for sunny days.</p>
+                            <button class="add-to-cart-btn" onclick="addToCart('cap', '263 Hit Radio Cap', '')">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 4: 263 Bucket Hat -->
+                    <div class="product-card" data-product-id="bucket-hat" data-name="263 Bucket Hat">
+                        <img class="product-image" src="https://via.placeholder.com/300x250.png?text=Bucket+Hat" alt="263 Bucket Hat">
+                        <div class="product-info">
+                            <h3>263 Bucket Hat</h3>
+                            <p>Stay cool and stylish with the 263 Bucket Hat. One size fits all.</p>
+                            <button class="add-to-cart-btn" onclick="addToCart('bucket-hat', '263 Bucket Hat', '')">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product 5: 263 Backpack -->
+                    <div class="product-card" data-product-id="backpack" data-name="263 Backpack">
+                        <img class="product-image" src="https://via.placeholder.com/300x250.png?text=Backpack" alt="263 Backpack">
+                        <div class="product-info">
+                            <h3>263 Backpack</h3>
+                            <p>Durable and spacious backpack for all your gear. Features embroidered 263 logo.</p>
+                            <button class="add-to-cart-btn" onclick="addToCart('backpack', '263 Backpack', '')">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+<!-- Shopping Cart Banner -->
+<div id="cart-banner" onclick="openCartModal()">
+    Proceed to Checkout (<span id="cart-count">0</span> items)
+</div>
+
+<!-- The Cart Modal -->
+<div id="cart-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeCartModal()">&times;</span>
+        <h2 class="section-title" style="margin-top: 0;">Shopping Cart</h2>
+        <ul id="cart-items">
+            <!-- Cart items will be listed here -->
+        </ul>
+        <p id="cart-empty-message" style="text-align: center; color: #aaa; margin-bottom: 20px;">Your cart is empty.</p>
+        <button class="checkout-btn" id="open-checkout-btn" onclick="openCheckoutModal()" disabled>Proceed to Checkout</button>
+    </div>
+</div>
+
+<!-- The Checkout Modal -->
+<div id="checkout-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeCheckoutModal()">&times;</span>
+        <h2 class="section-title" style="margin-top: 0; font-size: 1.5rem;">Choose Checkout Method</h2>
+        
+        <div id="checkout-options-container">
+            <!-- Email Checkout -->
+            <div class="checkout-option" onclick="checkout('email')">
+                <i class="fas fa-envelope"></i> Checkout via Email
+            </div>
+
+            <!-- WhatsApp Checkout -->
+            <div class="checkout-option" onclick="checkout('whatsapp')">
+                <i class="fab fa-whatsapp"></i> Checkout via WhatsApp
+            </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; color: #aaa;">Your order details will be sent to the station for processing.</p>
+    </div>
+</div>
+                </div>
+            </div>
+            
+        </section>
+        <!-- End SHOP PAGE -->
+
+
+            </div>
+            <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const djForm = document.getElementById('djApplicationForm');
+
+                if (djForm) {
+                    djForm.addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        const name = document.getElementById('djName').value.trim();
+                        const email = document.getElementById('djEmail').value.trim();
+                        const socials = document.getElementById('djSocials').value.trim();
+                        
+                        const message = `🎧 *New DJ Application*\n👤 Name: ${name}\n📧 Email: ${email}\n🔗 Socials: ${socials || 'N/A'}`;
+                        const encodedMsg = encodeURIComponent(message);
+                        window.open(`https://wa.me/447850930017?text=${encodedMsg}`, '_blank');
+                        
+                        djForm.reset();
+                    });
+                }
+            });
+            </script>
+
+            
+
+  <footer>
+    <div class="footer-content">
+        <p class="copyright">&copy; 2025 263 hit Radio Radio. All rights reserved.</p>
+        <div class="socials">
+            <a href="https://www.facebook.com/profile.php?id=100063670863603"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/263HitRadio"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/263hitradio/"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/channel/UC1Z1c8g1c8g1c8g1c8g1c8g"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+    </div>
+</footer>
+
+<style>
+    footer {
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+        padding: 30px 20px;
+        text-align: center;
+        border-top: 3px solid var(--primary);
+        font-family: 'Orbitron', sans-serif;
+        backdrop-filter: blur(5px);
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .copyright {
+        margin: 0;
+        color: #ddd;
+        font-size: 0.9rem;
+    }
+
+    .socials {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .socials a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(227, 25, 55, 0.2);
+        color: white;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        border: 1px solid var(--primary);
+        text-decoration: none;
+    }
+
+    .socials a:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(227, 25, 55, 0.4);
+    }
+
+    @media (max-width: 600px) {
+        .socials {
+            gap: 15px;
+        }
+        
+        .socials a {
+            width: 36px;
+            height: 36px;
+            font-size: 0.9rem;
+        }
+    }
+</style>
+    <script>
+    /**
+     * SPA Navigation and Player Logic for 263 hit Radio Radio
+     * - Handles navigation between sections
+     * - Audio player controls
+     * - Share and fan photo submission
+     */
+
+    // DOM elements
+    const navLinks = document.querySelectorAll('.nav-link');
+    const pageSections = document.querySelectorAll('.page-section');
+    const listenBtn = document.getElementById('listenBtn');
+    const volumeControl = document.getElementById('volumeControl');
+    const player = document.getElementById('radioPlayer');
+    const trackTitle = document.getElementById('track-title');
+    const shareBtn = document.getElementById('shareBtn');
+    const shareOptions = document.getElementById('shareOptions');
+    const submitPhoto = document.getElementById('submitPhoto');
+
+    // --- SPA Navigation ---
+    function showPage(page) {
+        // Update nav active state
+        navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('data-page') === page);
+        });
+        // Show/hide sections
+        pageSections.forEach(section => {
+            section.classList.toggle('active', section.id === `${page}-page`);
+        });
+        // Scroll to top
+        window.scrollTo(0, 0);
+    }
+
+    // Navigation click handlers
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const page = this.getAttribute('data-page');
+            showPage(page);
+        });
+    });
+
+    // Show home page by default on load
+    document.addEventListener('DOMContentLoaded', function() {
+        showPage('home');
+    });
+
+    // --- Audio Player Controls ---
+    let isPlaying = false;
+    let currentVolume = 0.7;
+    player.volume = currentVolume;
+
+    function updatePlayerUI(playing) {
+        if (playing) {
+            listenBtn.innerHTML = '<i class="fas fa-stop"></i> STOP PLAYING';
+            listenBtn.style.background = "#fff";
+            listenBtn.style.color = "#E31937";
+            isPlaying = true;
+        } else {
+            listenBtn.innerHTML = '<i class="fas fa-play"></i> LISTEN LIVE NOW';
+            listenBtn.style.background = "#E31937";
+            listenBtn.style.color = "#fff";
             isPlaying = false;
-            alert('Failed to load audio stream. Please check your connection.');
-        });
-
-        // Swipe navigation for mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-        const content = document.querySelector('.content');
-
-        content.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-
-        content.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
-
-        function handleSwipe() {
-            const minSwipeDistance = 50; // Minimum distance for a swipe to be registered
-            const swipeDistance = touchEndX - touchStartX;
-
-            if (Math.abs(swipeDistance) < minSwipeDistance) return;
-
-            if (swipeDistance > 0) {
-                // Swipe right - go back to previous page
-                navigateSwipe('previous');
-            } else {
-                // Swipe left - go to next page
-                navigateSwipe('next');
-            }
         }
+    }
 
-        function navigateSwipe(direction) {
-            const pages = ['home', 'about', 'events', 'stream', 'djs', 'fanbase', 'contact'];
-            const currentPageElement = document.querySelector('.page-section.active');
-            const currentPageId = currentPageElement ? currentPageElement.id.replace('-page', '') : 'home';
-            let currentIndex = pages.indexOf(currentPageId);
-            
-            if (currentIndex === -1) currentIndex = 0;
-            
-            let newIndex;
-            if (direction === 'next') {
-                newIndex = (currentIndex + 1) % pages.length;
-            } else {
-                newIndex = (currentIndex - 1 + pages.length) % pages.length;
-            }
-            
-            // Update navigation
-            const targetPage = pages[newIndex];
-            navLinks.forEach(navLink => {
-                navLink.classList.toggle('active', navLink.getAttribute('data-page') === targetPage);
+    function togglePlay() {
+        if (player.paused) {
+            player.play().then(() => {
+                updatePlayerUI(true);
+            }).catch(e => {
+                alert("Playback failed. Please click the play button again to start.");
             });
-            
-            // Show target page
-            pageSections.forEach(section => section.classList.remove('active'));
-            document.getElementById(`${targetPage}-page`).classList.add('active');
+        } else {
+            player.pause();
+            updatePlayerUI(false);
         }
+    }
+
+    listenBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        togglePlay();
+    });
+
+    volumeControl.addEventListener('input', function() {
+        player.volume = volumeControl.value;
+    });
+
+    // --- Share Functionality ---
+    shareBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        shareOptions.classList.toggle('show');
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.share-container')) {
+            shareOptions.classList.remove('show');
+        }
+    });
+
+    document.querySelectorAll('.share-option').forEach(option => {
+        option.addEventListener('click', function() {
+            const type = this.getAttribute('data-type');
+            const url = window.location.href;
+            const text = "Check out 263 hit Radio Radio - the best music streaming service!";
+            if (type === 'facebook') {
+                window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+            } else if (type === 'twitter') {
+                window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(text)}`, '_blank');
+            } else if (type === 'whatsapp') {
+                window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
+            } else if (type === 'copy') {
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('Link copied to clipboard!');
+                });
+            }
+            shareOptions.classList.remove('show');
+        });
+    });
+
+    // --- Fan Photo Submission ---
+    if (submitPhoto) {
+        submitPhoto.addEventListener('click', function() {
+            alert("To submit your photo, please send it to us on WhatsApp at +27835055714 with the hashtag #OneLoveFan");
+        });
+    }
+
+    // --- Simulate Track Title Changes ---
+    const tracks = [
+        "Zimbabwe's Hottest Hits",
+        "Afrobeat Mix",
+        "Zim Dancehall Special",
+        "Reggae Classics",
+        "Urban Grooves Collection"
+    ];
+    let trackIndex = 0;
+    setInterval(() => {
+        trackIndex = (trackIndex + 1) % tracks.length;
+        trackTitle.textContent = tracks[trackIndex];
+    }, 15000);
+
+     // --- SHOPPING CART LOGIC (NEW) ---
+let cart = [];
+const contactEmail = "263hitradio@gmail.com"; // Configured Email
+const whatsappNumber = "447850930017"; // Configured WhatsApp Number
+
+function saveCart() {
+    localStorage.setItem('263hitradio_cart', JSON.stringify(cart));
+    updateCartUI();
+}
+
+function loadCart() {
+    const storedCart = localStorage.getItem('263hitradio_cart');
+    cart = storedCart ? JSON.parse(storedCart) : [];
+    updateCartUI();
+}
+
+function addToCart(id, name, customization) {
+    const item = {
+        id: Date.now(), // Unique ID for each cart item
+        productId: id,
+        name: name,
+        customization: customization.trim()
+    };
+    cart.push(item);
+    saveCart();
+    openCartModal(); // Open cart modal after adding item
+}
+
+function removeFromCart(itemId) {
+    cart = cart.filter(item => item.id !== itemId);
+    saveCart();
+}
+
+function updateCartUI() {
+    const cartCountElement = document.getElementById('cart-count');
+    const cartBanner = document.getElementById('cart-banner');
+    const cartItemsList = document.getElementById('cart-items');
+    const cartEmptyMessage = document.getElementById('cart-empty-message');
+    const checkoutBtn = document.getElementById('open-checkout-btn');
+
+    cartCountElement.textContent = cart.length;
+
+    if (cart.length > 0) {
+        cartBanner.style.display = 'block';
+        cartEmptyMessage.style.display = 'none';
+        checkoutBtn.disabled = false;
+    } else {
+        cartBanner.style.display = 'none';
+        cartEmptyMessage.style.display = 'block';
+        checkoutBtn.disabled = true;
+    }
+
+    // Update modal list
+    cartItemsList.innerHTML = '';
+    cart.forEach(item => {
+        const li = document.createElement('li');
+        let itemName = item.name;
+        if (item.customization) {
+            itemName += ` (Custom: ${item.customization})`;
+        }
+        li.innerHTML = `
+            <span>${itemName}</span>
+            <button class="remove-item-btn" onclick="removeFromCart(${item.id})">&times;</button>
+        `;
+        cartItemsList.appendChild(li);
+    });
+}
+
+// Modal functions
+function openCartModal() {
+    document.getElementById('cart-modal').style.display = 'block';
+    updateCartUI(); // Ensure the cart is fully updated when opened
+}
+
+function closeCartModal() {
+    document.getElementById('cart-modal').style.display = 'none';
+}
+
+function openCheckoutModal() {
+    closeCartModal();
+    document.getElementById('checkout-modal').style.display = 'block';
+}
+
+function closeCheckoutModal() {
+    document.getElementById('checkout-modal').style.display = 'none';
+}
+
+// Close modals when clicking outside
+window.onclick = function(event) {
+    const cartModal = document.getElementById('cart-modal');
+    const checkoutModal = document.getElementById('checkout-modal');
+    if (event.target == cartModal) {
+        closeCartModal();
+    }
+    if (event.target == checkoutModal) {
+        closeCheckoutModal();
+    }
+}
+
+// Checkout function
+function checkout(method) {
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
+
+    const orderDetails = cart.map(item => {
+        let detail = `- ${item.name}`;
+        if (item.customization) {
+            detail += ` (Custom Name: ${item.customization})`;
+        }
+        return detail;
+    }).join('\n');
+
+    const message = `*New 263 Hit Radio Merchandise Order*\n\nOrder Details:\n${orderDetails}\n\n---\nPlease contact me to finalize the order and discuss delivery/payment.`;
+
+    if (method === 'email') {
+        const subject = encodeURIComponent("New Merchandise Order from Website");
+        const body = encodeURIComponent(message);
+        window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
+    } else if (method === 'whatsapp') {
+        const whatsappText = encodeURIComponent(message);
+        // Use the WhatsApp API link for better user experience
+        window.open(`https://wa.me/${whatsappNumber}?text=${whatsappText}`, '_blank');
+    }
+
+    // Clear cart after initiating checkout (assuming the user follows through)
+    cart = [];
+    saveCart();
+    closeCheckoutModal();
+    alert(`Your order request has been initiated via ${method}. Please check your ${method} app to send the final message.`);
+}
+
+// Load cart on page load
+loadCart();
+// --- END SHOPPING CART LOGIC ---
+
     </script>
 </body>
 </html>
